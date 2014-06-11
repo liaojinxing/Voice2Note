@@ -1,0 +1,22 @@
+
+#global
+*.orig
+
+#Pods
+Pods/
+
+#ios
+.DS_Store
+build/
+*~
+project.xcworkspace/
+xcuserdata/
+.svn
+.idea
+# CocoaPods
+Pods
+Podfile.lock
+
+#CrashMonkey
+instrumentscli*.trace/
+crash_monkey_result/

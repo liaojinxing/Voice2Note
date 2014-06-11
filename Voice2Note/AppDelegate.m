@@ -7,16 +7,30 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeController.h"
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  // Override point for customization after application launch.
+  self.window.backgroundColor = [UIColor whiteColor];
+
+  HomeController *controller = [[HomeController alloc] init];
+  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+  
+  /* customize navigation style */
+
+  [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+  [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
+  
+  
+  self.window.rootViewController = navigationController;
+
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -27,7 +41,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+  // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
   // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

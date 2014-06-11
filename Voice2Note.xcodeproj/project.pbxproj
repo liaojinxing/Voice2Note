@@ -19,6 +19,9 @@
 		C7821AA219480417008B952D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8A19480417008B952D /* UIKit.framework */; };
 		C7821AAA19480417008B952D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7821AA819480417008B952D /* InfoPlist.strings */; };
 		C7821AAC19480417008B952D /* Voice2NoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AAB19480417008B952D /* Voice2NoteTests.m */; };
+		C7821ABA19480485008B952D /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AB919480485008B952D /* HomeController.m */; };
+		C7821ABD194804A4008B952D /* NoteListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821ABC194804A4008B952D /* NoteListController.m */; };
+		C7821AC0194804B6008B952D /* NoteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821ABF194804B6008B952D /* NoteDetailController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		C7821AA719480417008B952D /* Voice2NoteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Voice2NoteTests-Info.plist"; sourceTree = "<group>"; };
 		C7821AA919480417008B952D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C7821AAB19480417008B952D /* Voice2NoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Voice2NoteTests.m; sourceTree = "<group>"; };
+		C7821AB819480485008B952D /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeController.h; path = Source/Controller/HomeController.h; sourceTree = "<group>"; };
+		C7821AB919480485008B952D /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeController.m; path = Source/Controller/HomeController.m; sourceTree = "<group>"; };
+		C7821ABB194804A4008B952D /* NoteListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteListController.h; path = Source/Controller/NoteListController.h; sourceTree = "<group>"; };
+		C7821ABC194804A4008B952D /* NoteListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteListController.m; path = Source/Controller/NoteListController.m; sourceTree = "<group>"; };
+		C7821ABE194804B6008B952D /* NoteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteDetailController.h; path = Source/Controller/NoteDetailController.h; sourceTree = "<group>"; };
+		C7821ABF194804B6008B952D /* NoteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteDetailController.m; path = Source/Controller/NoteDetailController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +116,8 @@
 		C7821A8C19480417008B952D /* Voice2Note */ = {
 			isa = PBXGroup;
 			children = (
+				C7821AB619480425008B952D /* Resource */,
+				C7821AB51948041E008B952D /* Source */,
 				C7821A9519480417008B952D /* AppDelegate.h */,
 				C7821A9619480417008B952D /* AppDelegate.m */,
 				C7821A9819480417008B952D /* Images.xcassets */,
@@ -142,6 +153,34 @@
 				C7821AA819480417008B952D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7821AB51948041E008B952D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C7821AB719480434008B952D /* Controller */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		C7821AB619480425008B952D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		C7821AB719480434008B952D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7821AB819480485008B952D /* HomeController.h */,
+				C7821AB919480485008B952D /* HomeController.m */,
+				C7821ABB194804A4008B952D /* NoteListController.h */,
+				C7821ABC194804A4008B952D /* NoteListController.m */,
+				C7821ABE194804B6008B952D /* NoteDetailController.h */,
+				C7821ABF194804B6008B952D /* NoteDetailController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +279,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7821A9719480417008B952D /* AppDelegate.m in Sources */,
+				C7821ABD194804A4008B952D /* NoteListController.m in Sources */,
+				C7821ABA19480485008B952D /* HomeController.m in Sources */,
 				C7821A9319480417008B952D /* main.m in Sources */,
+				C7821AC0194804B6008B952D /* NoteDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
