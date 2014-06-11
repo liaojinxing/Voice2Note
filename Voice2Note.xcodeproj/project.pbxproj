@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C7821A8719480417008B952D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8619480417008B952D /* Foundation.framework */; };
+		C7821A8919480417008B952D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8819480417008B952D /* CoreGraphics.framework */; };
+		C7821A8B19480417008B952D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8A19480417008B952D /* UIKit.framework */; };
+		C7821A9119480417008B952D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7821A8F19480417008B952D /* InfoPlist.strings */; };
+		C7821A9319480417008B952D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821A9219480417008B952D /* main.m */; };
+		C7821A9719480417008B952D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821A9619480417008B952D /* AppDelegate.m */; };
+		C7821A9919480417008B952D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7821A9819480417008B952D /* Images.xcassets */; };
+		C7821AA019480417008B952D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A9F19480417008B952D /* XCTest.framework */; };
+		C7821AA119480417008B952D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8619480417008B952D /* Foundation.framework */; };
+		C7821AA219480417008B952D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8A19480417008B952D /* UIKit.framework */; };
+		C7821AAA19480417008B952D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7821AA819480417008B952D /* InfoPlist.strings */; };
+		C7821AAC19480417008B952D /* Voice2NoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AAB19480417008B952D /* Voice2NoteTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7821AA319480417008B952D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7821A7B19480417008B952D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7821A8219480417008B952D;
+			remoteInfo = Voice2Note;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C7821A8319480417008B952D /* Voice2Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voice2Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7821A8619480417008B952D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C7821A8819480417008B952D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C7821A8A19480417008B952D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C7821A8E19480417008B952D /* Voice2Note-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Voice2Note-Info.plist"; sourceTree = "<group>"; };
+		C7821A9019480417008B952D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7821A9219480417008B952D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C7821A9419480417008B952D /* Voice2Note-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Voice2Note-Prefix.pch"; sourceTree = "<group>"; };
+		C7821A9519480417008B952D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C7821A9619480417008B952D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C7821A9819480417008B952D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C7821A9E19480417008B952D /* Voice2NoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Voice2NoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7821A9F19480417008B952D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C7821AA719480417008B952D /* Voice2NoteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Voice2NoteTests-Info.plist"; sourceTree = "<group>"; };
+		C7821AA919480417008B952D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7821AAB19480417008B952D /* Voice2NoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Voice2NoteTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7821A8019480417008B952D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7821A8919480417008B952D /* CoreGraphics.framework in Frameworks */,
+				C7821A8B19480417008B952D /* UIKit.framework in Frameworks */,
+				C7821A8719480417008B952D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7821A9B19480417008B952D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7821AA019480417008B952D /* XCTest.framework in Frameworks */,
+				C7821AA219480417008B952D /* UIKit.framework in Frameworks */,
+				C7821AA119480417008B952D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7821A7A19480417008B952D = {
+			isa = PBXGroup;
+			children = (
+				C7821A8C19480417008B952D /* Voice2Note */,
+				C7821AA519480417008B952D /* Voice2NoteTests */,
+				C7821A8519480417008B952D /* Frameworks */,
+				C7821A8419480417008B952D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7821A8419480417008B952D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7821A8319480417008B952D /* Voice2Note.app */,
+				C7821A9E19480417008B952D /* Voice2NoteTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7821A8519480417008B952D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7821A8619480417008B952D /* Foundation.framework */,
+				C7821A8819480417008B952D /* CoreGraphics.framework */,
+				C7821A8A19480417008B952D /* UIKit.framework */,
+				C7821A9F19480417008B952D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7821A8C19480417008B952D /* Voice2Note */ = {
+			isa = PBXGroup;
+			children = (
+				C7821A9519480417008B952D /* AppDelegate.h */,
+				C7821A9619480417008B952D /* AppDelegate.m */,
+				C7821A9819480417008B952D /* Images.xcassets */,
+				C7821A8D19480417008B952D /* Supporting Files */,
+			);
+			path = Voice2Note;
+			sourceTree = "<group>";
+		};
+		C7821A8D19480417008B952D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7821A8E19480417008B952D /* Voice2Note-Info.plist */,
+				C7821A8F19480417008B952D /* InfoPlist.strings */,
+				C7821A9219480417008B952D /* main.m */,
+				C7821A9419480417008B952D /* Voice2Note-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7821AA519480417008B952D /* Voice2NoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				C7821AAB19480417008B952D /* Voice2NoteTests.m */,
+				C7821AA619480417008B952D /* Supporting Files */,
+			);
+			path = Voice2NoteTests;
+			sourceTree = "<group>";
+		};
+		C7821AA619480417008B952D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7821AA719480417008B952D /* Voice2NoteTests-Info.plist */,
+				C7821AA819480417008B952D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7821A8219480417008B952D /* Voice2Note */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7821AAF19480417008B952D /* Build configuration list for PBXNativeTarget "Voice2Note" */;
+			buildPhases = (
+				C7821A7F19480417008B952D /* Sources */,
+				C7821A8019480417008B952D /* Frameworks */,
+				C7821A8119480417008B952D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Voice2Note;
+			productName = Voice2Note;
+			productReference = C7821A8319480417008B952D /* Voice2Note.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C7821A9D19480417008B952D /* Voice2NoteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7821AB219480417008B952D /* Build configuration list for PBXNativeTarget "Voice2NoteTests" */;
+			buildPhases = (
+				C7821A9A19480417008B952D /* Sources */,
+				C7821A9B19480417008B952D /* Frameworks */,
+				C7821A9C19480417008B952D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7821AA419480417008B952D /* PBXTargetDependency */,
+			);
+			name = Voice2NoteTests;
+			productName = Voice2NoteTests;
+			productReference = C7821A9E19480417008B952D /* Voice2NoteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7821A7B19480417008B952D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = jinxing;
+				TargetAttributes = {
+					C7821A9D19480417008B952D = {
+						TestTargetID = C7821A8219480417008B952D;
+					};
+				};
+			};
+			buildConfigurationList = C7821A7E19480417008B952D /* Build configuration list for PBXProject "Voice2Note" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C7821A7A19480417008B952D;
+			productRefGroup = C7821A8419480417008B952D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7821A8219480417008B952D /* Voice2Note */,
+				C7821A9D19480417008B952D /* Voice2NoteTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7821A8119480417008B952D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7821A9119480417008B952D /* InfoPlist.strings in Resources */,
+				C7821A9919480417008B952D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7821A9C19480417008B952D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7821AAA19480417008B952D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7821A7F19480417008B952D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7821A9719480417008B952D /* AppDelegate.m in Sources */,
+				C7821A9319480417008B952D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7821A9A19480417008B952D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7821AAC19480417008B952D /* Voice2NoteTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7821AA419480417008B952D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7821A8219480417008B952D /* Voice2Note */;
+			targetProxy = C7821AA319480417008B952D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C7821A8F19480417008B952D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7821A9019480417008B952D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C7821AA819480417008B952D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7821AA919480417008B952D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7821AAD19480417008B952D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7821AAE19480417008B952D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7821AB019480417008B952D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
+				INFOPLIST_FILE = "Voice2Note/Voice2Note-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C7821AB119480417008B952D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
+				INFOPLIST_FILE = "Voice2Note/Voice2Note-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C7821AB319480417008B952D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Voice2Note.app/Voice2Note";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Voice2NoteTests/Voice2NoteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C7821AB419480417008B952D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Voice2Note.app/Voice2Note";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
+				INFOPLIST_FILE = "Voice2NoteTests/Voice2NoteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7821A7E19480417008B952D /* Build configuration list for PBXProject "Voice2Note" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7821AAD19480417008B952D /* Debug */,
+				C7821AAE19480417008B952D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7821AAF19480417008B952D /* Build configuration list for PBXNativeTarget "Voice2Note" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7821AB019480417008B952D /* Debug */,
+				C7821AB119480417008B952D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C7821AB219480417008B952D /* Build configuration list for PBXNativeTarget "Voice2NoteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7821AB319480417008B952D /* Debug */,
+				C7821AB419480417008B952D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7821A7B19480417008B952D /* Project object */;
+}
