@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Voice2Note
+
+  Created by liaojinxing on 14-6-11.
+  Copyright (c) 2014年 jinxing. All rights reserved.
+*/
+
+
+// Home
+"HomeButtonItemMoreAction" = "更多";
+"HomeButtonItemListAction" = "过往";
+
+"TextPlaceHolder" = "";

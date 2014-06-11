@@ -22,6 +22,12 @@
 		C7821ABA19480485008B952D /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AB919480485008B952D /* HomeController.m */; };
 		C7821ABD194804A4008B952D /* NoteListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821ABC194804A4008B952D /* NoteListController.m */; };
 		C7821AC0194804B6008B952D /* NoteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821ABF194804B6008B952D /* NoteDetailController.m */; };
+		C7821AC219482208008B952D /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AC119482208008B952D /* iflyMSC.framework */; };
+		C7821AC419482220008B952D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AC319482220008B952D /* AVFoundation.framework */; };
+		C7821AC61948222B008B952D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AC51948222B008B952D /* SystemConfiguration.framework */; };
+		C7821AC819482235008B952D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AC719482235008B952D /* AudioToolbox.framework */; };
+		C7821ACC19482574008B952D /* VNConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821ACB19482574008B952D /* VNConstants.m */; };
+		C7821ACE19482610008B952D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7821ACD19482610008B952D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,13 @@
 		C7821ABC194804A4008B952D /* NoteListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteListController.m; path = Source/Controller/NoteListController.m; sourceTree = "<group>"; };
 		C7821ABE194804B6008B952D /* NoteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteDetailController.h; path = Source/Controller/NoteDetailController.h; sourceTree = "<group>"; };
 		C7821ABF194804B6008B952D /* NoteDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteDetailController.m; path = Source/Controller/NoteDetailController.m; sourceTree = "<group>"; };
+		C7821AC119482208008B952D /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = Framework/iflyMSC.framework; sourceTree = "<group>"; };
+		C7821AC319482220008B952D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C7821AC51948222B008B952D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C7821AC719482235008B952D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C7821ACA19482574008B952D /* VNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VNConstants.h; path = Source/Common/VNConstants.h; sourceTree = "<group>"; };
+		C7821ACB19482574008B952D /* VNConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VNConstants.m; path = Source/Common/VNConstants.m; sourceTree = "<group>"; };
+		C7821ACD19482610008B952D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resource/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +77,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7821AC819482235008B952D /* AudioToolbox.framework in Frameworks */,
+				C7821AC61948222B008B952D /* SystemConfiguration.framework in Frameworks */,
+				C7821AC419482220008B952D /* AVFoundation.framework in Frameworks */,
+				C7821AC219482208008B952D /* iflyMSC.framework in Frameworks */,
 				C7821A8919480417008B952D /* CoreGraphics.framework in Frameworks */,
 				C7821A8B19480417008B952D /* UIKit.framework in Frameworks */,
 				C7821A8719480417008B952D /* Foundation.framework in Frameworks */,
@@ -105,6 +122,10 @@
 		C7821A8519480417008B952D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7821AC719482235008B952D /* AudioToolbox.framework */,
+				C7821AC51948222B008B952D /* SystemConfiguration.framework */,
+				C7821AC319482220008B952D /* AVFoundation.framework */,
+				C7821AC119482208008B952D /* iflyMSC.framework */,
 				C7821A8619480417008B952D /* Foundation.framework */,
 				C7821A8819480417008B952D /* CoreGraphics.framework */,
 				C7821A8A19480417008B952D /* UIKit.framework */,
@@ -158,6 +179,7 @@
 		C7821AB51948041E008B952D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C7821AC919482557008B952D /* Common */,
 				C7821AB719480434008B952D /* Controller */,
 			);
 			name = Source;
@@ -166,6 +188,7 @@
 		C7821AB619480425008B952D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C7821ACD19482610008B952D /* Localizable.strings */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -181,6 +204,15 @@
 				C7821ABF194804B6008B952D /* NoteDetailController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		C7821AC919482557008B952D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C7821ACA19482574008B952D /* VNConstants.h */,
+				C7821ACB19482574008B952D /* VNConstants.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7821A9119480417008B952D /* InfoPlist.strings in Resources */,
+				C7821ACE19482610008B952D /* Localizable.strings in Resources */,
 				C7821A9919480417008B952D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +316,7 @@
 				C7821ABA19480485008B952D /* HomeController.m in Sources */,
 				C7821A9319480417008B952D /* main.m in Sources */,
 				C7821AC0194804B6008B952D /* NoteDetailController.m in Sources */,
+				C7821ACC19482574008B952D /* VNConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +435,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
 				INFOPLIST_FILE = "Voice2Note/Voice2Note-Info.plist";
@@ -414,6 +452,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
 				INFOPLIST_FILE = "Voice2Note/Voice2Note-Info.plist";
