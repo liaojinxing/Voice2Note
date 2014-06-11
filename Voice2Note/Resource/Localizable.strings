@@ -12,3 +12,16 @@
 "HomeButtonItemListAction" = "过往";
 
 "TextPlaceHolder" = "";
+"SpeechNoResult" = "无识别结果";
+
+"ActionSheetTitle" = "更多";
+"ActionSheetCancel" = "取消";
+"ActionSheetSave" = "保存";
+"ActionSheetMail" = "发送邮件";
+"ActionSheetWeixin" = "分享到朋友圈";
+
+"DeleteFileSuccess" = "删除成功";
+
+"SendEmailSuccess" = "邮件发送成功";
+"SendEmailFail" = "邮件发送失败";
+

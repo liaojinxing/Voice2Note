@@ -13,13 +13,18 @@
 #import "iflyMSC/IFlySpeechConstant.h"
 #import "iflyMSC/IFlySpeechUtility.h"
 #import "iflyMSC/IFlyRecognizerView.h"
+#import "SVProgressHUD.h"
+#import "VNNote.h"
+@import MessageUI;
 
 static const CGFloat kButtonHeight = 100;
 static const CGFloat kHorizontalMargin = 10;
 static const CGFloat kVerticalMargin = 10;
 
+static const CGFloat kTextViewHeight = 320;
+static const CGFloat kToolbarHeight = 30;
 
-@interface HomeController ()<IFlyRecognizerViewDelegate>
+@interface HomeController ()<IFlyRecognizerViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 {
   UITextView *_textView;
   UIButton *_recognizeButton;
@@ -36,18 +41,28 @@ static const CGFloat kVerticalMargin = 10;
   [self setupNavigationBar];
   [self initComps];
   [self setupSpeechRecognizer];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardWillShow:)
+                                               name:UIKeyboardWillShowNotification
+                                             object:nil];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardWillHide:)
+                                               name:UIKeyboardWillHideNotification
+                                             object:nil];
 }
 
 - (void)setupNavigationBar
 {
   self.navigationItem.title = kAppName;
-  UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"更多"
+  UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_more_white"]
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(moreActionButtonPressed)];
   self.navigationItem.rightBarButtonItem = rightItem;
 
-  UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"过往"
+  UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit_file"]
                                                                style:UIBarButtonItemStylePlain
                                                               target:self
                                                               action:@selector(gotoListView)];
@@ -56,9 +71,34 @@ static const CGFloat kVerticalMargin = 10;
 
 - (void)initComps
 {
+  _textView = [[UITextView alloc] initWithFrame:CGRectMake(kHorizontalMargin,
+                                                           0,
+                                                           self.view.frame.size.width - kHorizontalMargin * 2,
+                                                           kTextViewHeight)];
+  [_textView setFont:[UIFont systemFontOfSize:14]];
+  [_textView setEditable:YES];
+  [_textView setScrollEnabled:YES];
+
+  UIBarButtonItem *barButton = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                     target:self action:@selector(hideKeyboard)];
+
+  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kToolbarHeight)];
+  toolbar.items = [NSArray arrayWithObject:barButton];
+  _textView.inputAccessoryView = toolbar;
+
+  [self.view addSubview:_textView];
+
+  UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                              kTextViewHeight + kVerticalMargin,
+                                                              self.view.frame.size.width,
+                                                              1.0f)];
+  [lineView setBackgroundColor:[UIColor orangeColor]];
+  [self.view addSubview:lineView];
+
   _recognizeButton = [UIButton buttonWithType:UIButtonTypeCustom];
   [_recognizeButton setFrame:CGRectMake((self.view.frame.size.width - kButtonHeight) / 2,
-                                        self.view.frame.size.height - kButtonHeight - kVerticalMargin * 2,
+                                        kTextViewHeight + kVerticalMargin * 4,
                                         kButtonHeight,
                                         kButtonHeight)];
   [_recognizeButton setBackgroundColor:[UIColor redColor]];
@@ -66,24 +106,6 @@ static const CGFloat kVerticalMargin = 10;
   _recognizeButton.layer.masksToBounds = YES;
   [_recognizeButton addTarget:self action:@selector(startListenning) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:_recognizeButton];
-
-  CGFloat y = 70;
-  _textView = [[UITextView alloc] initWithFrame:CGRectMake(kHorizontalMargin, y,
-                                                           self.view.frame.size.width - kHorizontalMargin * 2,
-                                                           _recognizeButton.frame.origin.y - y - kVerticalMargin * 2)];
-  [_textView setEditable:YES];
-  [_textView setScrollEnabled:NO];
-  [self.view addSubview:_textView];
-
-  UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                              _recognizeButton.frame.origin.y - kVerticalMargin,
-                                                              self.view.frame.size.width,
-                                                              1.0f)];
-  [lineView setBackgroundColor:[UIColor orangeColor]];
-  [self.view addSubview:lineView];
-
-  UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panToHideKeyboard:)];
-  [self.view addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)setupSpeechRecognizer
@@ -96,8 +118,12 @@ static const CGFloat kVerticalMargin = 10;
 
   [_iflyRecognizerView setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
   [_iflyRecognizerView setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
-  // | result_type   | 返回结果的数据格式，可设置为json，xml，plain，默认为json。
   [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
+}
+
+- (void)dealloc
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -105,9 +131,6 @@ static const CGFloat kVerticalMargin = 10;
   [IFlySpeechUtility destroy];
 }
 
-/**
-   启动按钮响应方法
- */
 - (void)startListenning
 {
   [_iflyRecognizerView start];
@@ -115,10 +138,7 @@ static const CGFloat kVerticalMargin = 10;
 }
 
 #pragma mark IFlyRecognizerViewDelegate
-/** 识别结果回调方法
-   @param resultArray 结果列表
-   @param isLast YES 表示最后一个，NO表示后面还有结果
- */
+
 - (void)onResult:(NSArray *)resultArray isLast:(BOOL)isLast
 {
   NSMutableString *result = [[NSMutableString alloc] init];
@@ -129,26 +149,48 @@ static const CGFloat kVerticalMargin = 10;
   _textView.text = [NSString stringWithFormat:@"%@%@", _textView.text, result];
 }
 
-/** 识别结束回调方法
-   @param error 识别错误
- */
 - (void)onError:(IFlySpeechError *)error
 {
   NSLog(@"errorCode:%d", [error errorCode]);
 }
 
 #pragma mark - Keyboard
-- (void)panToHideKeyboard:(UIPanGestureRecognizer *)recognizer
-{
-  if ((recognizer.state == UIGestureRecognizerStateChanged) ||
-      (recognizer.state == UIGestureRecognizerStateEnded)) {
-    CGPoint velocity = [recognizer velocityInView:self.view];
 
-    if (velocity.y > 0) { // panning down
-      if ([_textView isFirstResponder]) {
-        [_textView resignFirstResponder];
-      }
-    }
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+  NSDictionary *userInfo = notification.userInfo;
+  [UIView animateWithDuration:[userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]
+                        delay:0.f
+                      options:[userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]
+                   animations:^
+   {
+     CGRect keyboardFrame = [[userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+     CGFloat keyboardHeight = keyboardFrame.size.height;
+
+     CGRect frame = _textView.frame;
+     frame.size.height = MIN(self.view.frame.size.height - keyboardHeight - 64, kTextViewHeight);
+     _textView.frame = frame;
+   }               completion:NULL];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+  NSDictionary *userInfo = notification.userInfo;
+  [UIView animateWithDuration:[userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]
+                        delay:0.f
+                      options:[userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue]
+                   animations:^
+   {
+     CGRect frame = _textView.frame;
+     frame.size.height = kTextViewHeight;
+     _textView.frame = frame;
+   }               completion:NULL];
+}
+
+- (void)hideKeyboard
+{
+  if ([_textView isFirstResponder]) {
+    [_textView resignFirstResponder];
   }
 }
 
@@ -156,6 +198,27 @@ static const CGFloat kVerticalMargin = 10;
 
 - (void)moreActionButtonPressed
 {
+  [self hideKeyboard];
+  UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"ActionSheetTitle", @"")
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"ActionSheetCancel", @"")
+                                             destructiveButtonTitle:NSLocalizedString(@"ActionSheetSave", @"")
+                                                  otherButtonTitles:NSLocalizedString(@"ActionSheetMail", @""),
+                                NSLocalizedString(@"ActionSheetWeixin", @""), nil];
+  [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  if (buttonIndex == 0) {
+    [self saveNote];
+  } else if (buttonIndex == 1) {
+    if ([MFMailComposeViewController canSendMail]) {
+      [self email];
+    }
+  } else if (buttonIndex == 2) {
+    NSLog(@"朋友圈");
+  }
 }
 
 - (void)gotoListView
@@ -165,6 +228,44 @@ static const CGFloat kVerticalMargin = 10;
   }
   NoteListController *listController = [[NoteListController alloc] init];
   [self.navigationController pushViewController:listController animated:YES];
+}
+
+#pragma mark - Save
+
+- (void)saveNote
+{
+  NSString *title = _textView.text;
+  NSString *content = _textView.text;
+  NSDate *createdDate = [NSDate date];
+  VNNote *note = [[VNNote alloc] initWithTitle:title
+                                         content:content
+                                     createdDate:createdDate];
+  [note Persistence];
+}
+#pragma mark - Eail
+
+- (void)email
+{
+  MFMailComposeViewController *composer = [[MFMailComposeViewController alloc]init];
+  [composer setMailComposeDelegate:self];
+  if ([MFMailComposeViewController canSendMail]) {
+    [composer setSubject:@""];
+    [composer setMessageBody:_textView.text isHTML:NO];
+    [composer setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:composer animated:YES completion:nil];
+  } else {
+  }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+  if (error) {
+    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SendEmailFail", @"")];
+    [self dismissViewControllerAnimated:YES completion:nil];
+  } else {
+    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SendEmailSuccess", @"")];
+    [self dismissViewControllerAnimated:YES completion:nil];
+  }
 }
 
 @end
