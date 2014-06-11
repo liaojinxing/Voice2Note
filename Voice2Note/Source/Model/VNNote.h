@@ -10,6 +10,7 @@
 
 @interface VNNote : NSObject<NSCoding>
 
+@property (nonatomic, strong) NSString *noteID;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSDate *createdDate;

@@ -15,7 +15,7 @@
 
 - (NSMutableArray *)readAllNotes;
 
-- (VNNote *)readNoteWithTitle:(NSString *)title;
+- (VNNote *)readNoteWithID:(NSString *)noteID;
 - (BOOL)storeNote:(VNNote *)note;
 - (void)deleteNote:(VNNote *)note;
 

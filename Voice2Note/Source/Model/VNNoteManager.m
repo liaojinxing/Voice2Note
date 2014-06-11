@@ -63,9 +63,9 @@
     return nil;
   }
   
-  // Create Tasker for each file
+  // Create Note for each file
   for (NSString *file in files) {
-    VNNote *note = [self readNoteWithTitle:file];
+    VNNote *note = [self readNoteWithID:file];
     if (note) {
       [array addObject:note];
     }
@@ -73,9 +73,9 @@
   return array;
 }
 
-- (VNNote *)readNoteWithTitle:(NSString *)title;
+- (VNNote *)readNoteWithID:(NSString *)noteID;
 {
-  NSString *dataPath = [_docPath stringByAppendingPathComponent:title];
+  NSString *dataPath = [_docPath stringByAppendingPathComponent:noteID];
   NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
   if (codedData == nil) {
     return nil;
@@ -87,14 +87,14 @@
 - (BOOL)storeNote:(VNNote *)note
 {
   [self createDataPathIfNeeded];
-  NSString *dataPath = [_docPath stringByAppendingPathComponent:note.title];
+  NSString *dataPath = [_docPath stringByAppendingPathComponent:note.noteID];
   NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:note];
   return [savedData writeToFile:dataPath atomically:YES];
 }
 
 - (void)deleteNote:(VNNote *)note
 {
-  NSString *filePath = [_docPath stringByAppendingPathComponent:note.title];
+  NSString *filePath = [_docPath stringByAppendingPathComponent:note.noteID];
   BOOL success = [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
   if (success) {
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"DeleteFileSuccess", @"")];

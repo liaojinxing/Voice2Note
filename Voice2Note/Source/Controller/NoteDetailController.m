@@ -98,10 +98,21 @@
   }
 }
 
+- (void)hideKeyboard
+{
+  if ([_titleTextField isFirstResponder]) {
+    [_titleTextField resignFirstResponder];
+  }
+  if ([_contentTextView isFirstResponder]) {
+    [_contentTextView resignFirstResponder];
+  }
+}
+
 #pragma mark - Save
 
 - (void)save
 {
+  [self hideKeyboard];
   VNNote *note = [[VNNote alloc] initWithTitle:_titleTextField.text
                                        content:_contentTextView.text
                                    createdDate:_note.createdDate];
