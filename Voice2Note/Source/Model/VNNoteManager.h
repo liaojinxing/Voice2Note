@@ -17,6 +17,7 @@
 
 - (VNNote *)readNoteWithTitle:(NSString *)title;
 - (BOOL)storeNote:(VNNote *)note;
+- (void)deleteNote:(VNNote *)note;
 
 + (instancetype)sharedManager;
 

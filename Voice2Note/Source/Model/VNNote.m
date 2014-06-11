@@ -32,7 +32,7 @@
     _createdDate = createdDate;
     if (_title == nil || _title.length == 0) {
       NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-      [formatter setDateFormat:@"yyMMdd:"];
+      [formatter setDateFormat:@"yyMMdd-HH:mm:ss"];
       _title = [formatter stringFromDate:_createdDate];
     }
     if (_content == nil || _content.length == 0) {

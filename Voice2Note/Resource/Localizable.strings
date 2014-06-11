@@ -20,8 +20,12 @@
 "ActionSheetMail" = "发送邮件";
 "ActionSheetWeixin" = "分享到朋友圈";
 
+"AddTitleForNote" = "给笔记加个标题？";
+"Sure" = "确定";
+
 "DeleteFileSuccess" = "删除成功";
 
 "SendEmailSuccess" = "邮件发送成功";
 "SendEmailFail" = "邮件发送失败";
+"CanNoteSendMail" = "当前设备不支持发送邮件";
 

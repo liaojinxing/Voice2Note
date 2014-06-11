@@ -24,7 +24,8 @@ static const CGFloat kVerticalMargin = 10;
 static const CGFloat kTextViewHeight = 320;
 static const CGFloat kToolbarHeight = 30;
 
-@interface HomeController ()<IFlyRecognizerViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface HomeController ()<IFlyRecognizerViewDelegate, UIActionSheetDelegate,
+MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 {
   UITextView *_textView;
   UIButton *_recognizeButton;
@@ -151,7 +152,7 @@ static const CGFloat kToolbarHeight = 30;
 
 - (void)onError:(IFlySpeechError *)error
 {
-  NSLog(@"errorCode:%d", [error errorCode]);
+  NSLog(@"errorCode:%@", [error errorDesc]);
 }
 
 #pragma mark - Keyboard
@@ -196,31 +197,6 @@ static const CGFloat kToolbarHeight = 30;
 
 #pragma mark - Action
 
-- (void)moreActionButtonPressed
-{
-  [self hideKeyboard];
-  UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"ActionSheetTitle", @"")
-                                                           delegate:self
-                                                  cancelButtonTitle:NSLocalizedString(@"ActionSheetCancel", @"")
-                                             destructiveButtonTitle:NSLocalizedString(@"ActionSheetSave", @"")
-                                                  otherButtonTitles:NSLocalizedString(@"ActionSheetMail", @""),
-                                NSLocalizedString(@"ActionSheetWeixin", @""), nil];
-  [actionSheet showInView:self.view];
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-  if (buttonIndex == 0) {
-    [self saveNote];
-  } else if (buttonIndex == 1) {
-    if ([MFMailComposeViewController canSendMail]) {
-      [self email];
-    }
-  } else if (buttonIndex == 2) {
-    NSLog(@"朋友圈");
-  }
-}
-
 - (void)gotoListView
 {
   if ([_textView isFirstResponder]) {
@@ -230,21 +206,59 @@ static const CGFloat kToolbarHeight = 30;
   [self.navigationController pushViewController:listController animated:YES];
 }
 
+#pragma mark - More Action
+
+- (void)moreActionButtonPressed
+{
+  [self hideKeyboard];
+  UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"ActionSheetCancel", @"")
+                                             destructiveButtonTitle:nil
+                                                  otherButtonTitles:NSLocalizedString(@"ActionSheetSave", @""), NSLocalizedString(@"ActionSheetMail", @""),
+                                NSLocalizedString(@"ActionSheetWeixin", @""), nil];
+  [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  if (buttonIndex == 0) {
+    [self addTitleForNote];
+  } else if (buttonIndex == 1) {
+    if ([MFMailComposeViewController canSendMail]) {
+      [self sendEmail];
+    }
+  } else if (buttonIndex == 2) {
+    NSLog(@"朋友圈");
+  }
+}
+
 #pragma mark - Save
 
-- (void)saveNote
+- (void)addTitleForNote
 {
-  NSString *title = _textView.text;
+  UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"AddTitleForNote", @"")
+                                                  message:nil
+                                                 delegate:self
+                                        cancelButtonTitle:NSLocalizedString(@"Sure", @"")
+                                        otherButtonTitles:nil];
+  alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+  [alertView show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+  NSString *title = [alertView textFieldAtIndex:0].text;
   NSString *content = _textView.text;
   NSDate *createdDate = [NSDate date];
   VNNote *note = [[VNNote alloc] initWithTitle:title
-                                         content:content
-                                     createdDate:createdDate];
+                                       content:content
+                                   createdDate:createdDate];
   [note Persistence];
 }
+
 #pragma mark - Eail
 
-- (void)email
+- (void)sendEmail
 {
   MFMailComposeViewController *composer = [[MFMailComposeViewController alloc]init];
   [composer setMailComposeDelegate:self];
@@ -254,6 +268,7 @@ static const CGFloat kToolbarHeight = 30;
     [composer setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:composer animated:YES completion:nil];
   } else {
+    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"CanNoteSendMail", @"")];
   }
 }
 
