@@ -8,3 +8,6 @@
 
 NSString *const kIFlyAppID = @"5396d66c";
 NSString *const kAppName = @"Voice2Note";
+
+CGFloat const kHorizontalMargin = 10.f;
+CGFloat const kVerticalMargin = 10.f;

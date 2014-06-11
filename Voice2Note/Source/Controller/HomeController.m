@@ -18,8 +18,6 @@
 @import MessageUI;
 
 static const CGFloat kButtonHeight = 100;
-static const CGFloat kHorizontalMargin = 10;
-static const CGFloat kVerticalMargin = 10;
 
 static const CGFloat kTextViewHeight = 320;
 static const CGFloat kToolbarHeight = 30;

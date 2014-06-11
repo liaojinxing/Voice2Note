@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VNNote.h"
 
 @interface NoteDetailController : UIViewController
+
+- (instancetype)initWithNote:(VNNote *)note;
 
 @end

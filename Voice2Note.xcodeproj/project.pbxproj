@@ -34,6 +34,7 @@
 		C7821AD7194843B0008B952D /* VNNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AD6194843B0008B952D /* VNNote.m */; };
 		C7821ADA194844C0008B952D /* VNNoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AD9194844C0008B952D /* VNNoteManager.m */; };
 		C7821ADD1948489C008B952D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821ADB1948483F008B952D /* AddressBook.framework */; };
+		C7821ADF19485FC0008B952D /* ic_add_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		C7821AD8194844C0008B952D /* VNNoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VNNoteManager.h; path = Source/Model/VNNoteManager.h; sourceTree = "<group>"; };
 		C7821AD9194844C0008B952D /* VNNoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VNNoteManager.m; path = Source/Model/VNNoteManager.m; sourceTree = "<group>"; };
 		C7821ADB1948483F008B952D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_add_tab@2x.png"; path = "Resource/ic_add_tab@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 		C7821AB619480425008B952D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */,
 				C7821ACF19483FD6008B952D /* edit_file@2x.png */,
 				C7821AD019483FD6008B952D /* ic_more_white@2x.png */,
 				C7821ACD19482610008B952D /* Localizable.strings */,
@@ -330,6 +333,7 @@
 				C7821ACE19482610008B952D /* Localizable.strings in Resources */,
 				C7821AD119483FD6008B952D /* edit_file@2x.png in Resources */,
 				C7821AD219483FD6008B952D /* ic_more_white@2x.png in Resources */,
+				C7821ADF19485FC0008B952D /* ic_add_tab@2x.png in Resources */,
 				C7821A9919480417008B952D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
