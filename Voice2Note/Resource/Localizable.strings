@@ -17,8 +17,8 @@
 "ActionSheetTitle" = "更多";
 "ActionSheetCancel" = "取消";
 "ActionSheetSave" = "保存";
-"ActionSheetMail" = "发送邮件";
-"ActionSheetWeixin" = "分享到朋友圈";
+"ActionSheetMail" = "发邮件";
+"ActionSheetWeixin" = "朋友圈";
 
 "AddTitleForNote" = "给笔记加个标题？";
 "Sure" = "确定";
@@ -28,4 +28,9 @@
 "SendEmailSuccess" = "邮件发送成功";
 "SendEmailFail" = "邮件发送失败";
 "CanNoteSendMail" = "当前设备不支持发送邮件";
+
+"VoiceInput" = "语音输入";
+
+"SaveSuccess" = "保存成功";
+"SaveFail" = "保存失败";
 

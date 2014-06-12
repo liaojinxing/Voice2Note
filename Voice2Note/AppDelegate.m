@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeController.h"
+#import "NoteListController.h"
 
 
 @implementation AppDelegate
@@ -18,7 +18,7 @@
   // Override point for customization after application launch.
   self.window.backgroundColor = [UIColor whiteColor];
 
-  HomeController *controller = [[HomeController alloc] init];
+  NoteListController *controller = [[NoteListController alloc] init];
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
   
   /* customize navigation style */

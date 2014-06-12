@@ -50,7 +50,8 @@ static const CGFloat kListCellHeight = 44.0f;
 
 - (void)createTask
 {
-  [self.navigationController popViewControllerAnimated:YES];
+  NoteDetailController *controller = [[NoteDetailController alloc] init];
+  [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - DataSource & Delegate
