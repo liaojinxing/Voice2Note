@@ -35,6 +35,7 @@
 		C7821ADA194844C0008B952D /* VNNoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AD9194844C0008B952D /* VNNoteManager.m */; };
 		C7821ADD1948489C008B952D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821ADB1948483F008B952D /* AddressBook.framework */; };
 		C7821ADF19485FC0008B952D /* ic_add_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */; };
+		C7821AE51949910A008B952D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AE21949910A008B952D /* libWeChatSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,9 @@
 		C7821AD9194844C0008B952D /* VNNoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VNNoteManager.m; path = Source/Model/VNNoteManager.m; sourceTree = "<group>"; };
 		C7821ADB1948483F008B952D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_add_tab@2x.png"; path = "Resource/ic_add_tab@2x.png"; sourceTree = "<group>"; };
+		C7821AE21949910A008B952D /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		C7821AE31949910A008B952D /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		C7821AE41949910A008B952D /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 				C7821AC819482235008B952D /* AudioToolbox.framework in Frameworks */,
 				C7821AC61948222B008B952D /* SystemConfiguration.framework in Frameworks */,
 				C7821AC419482220008B952D /* AVFoundation.framework in Frameworks */,
+				C7821AE51949910A008B952D /* libWeChatSDK.a in Frameworks */,
 				C7821AC219482208008B952D /* iflyMSC.framework in Frameworks */,
 				C7821A8919480417008B952D /* CoreGraphics.framework in Frameworks */,
 				C7821A8B19480417008B952D /* UIKit.framework in Frameworks */,
@@ -159,6 +164,7 @@
 		C7821A8C19480417008B952D /* Voice2Note */ = {
 			isa = PBXGroup;
 			children = (
+				C7821AE0194990F7008B952D /* Library */,
 				C7821AB619480425008B952D /* Resource */,
 				C7821AB51948041E008B952D /* Source */,
 				C7821A9519480417008B952D /* AppDelegate.h */,
@@ -251,6 +257,25 @@
 			);
 			name = Model;
 			sourceTree = "<group>";
+		};
+		C7821AE0194990F7008B952D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C7821AE11949910A008B952D /* Weixin */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		C7821AE11949910A008B952D /* Weixin */ = {
+			isa = PBXGroup;
+			children = (
+				C7821AE21949910A008B952D /* libWeChatSDK.a */,
+				C7821AE31949910A008B952D /* WXApi.h */,
+				C7821AE41949910A008B952D /* WXApiObject.h */,
+			);
+			name = Weixin;
+			path = Framework/Weixin;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -520,6 +545,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
 				INFOPLIST_FILE = "Voice2Note/Voice2Note-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework/Weixin",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -538,6 +567,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
 				INFOPLIST_FILE = "Voice2Note/Voice2Note-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework/Weixin",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

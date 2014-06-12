@@ -7,6 +7,7 @@
 //
 
 NSString *const kIFlyAppID = @"5396d66c";
+NSString *const kWeixinAppID = @"wxd930ea5d5a258f4f";
 NSString *const kAppName = @"Voice2Note";
 
 CGFloat const kHorizontalMargin = 10.f;

@@ -13,6 +13,7 @@
 #import "iflyMSC/IFlySpeechConstant.h"
 #import "iflyMSC/IFlySpeechUtility.h"
 #import "iflyMSC/IFlyRecognizerView.h"
+#import "WXApi.h"
 @import MessageUI;
 
 
@@ -21,7 +22,8 @@ static const CGFloat kTextFieldHeight = 30;
 static const CGFloat kToolbarHeight = 44;
 static const CGFloat kVoiceButtonWidth = 100;
 
-@interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate,
+MFMailComposeViewControllerDelegate>
 {
   VNNote *_note;
   UITextField *_titleTextField;
@@ -300,7 +302,11 @@ static const CGFloat kVoiceButtonWidth = 100;
 
 - (void)shareToWeixin
 {
-
+  SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+  req.text = [NSString stringWithFormat:@"%@ From:%@", _contentTextView.text, kAppName];
+  req.bText = YES;
+  req.scene = WXSceneTimeline;
+  [WXApi sendReq:req];
 }
 
 @end

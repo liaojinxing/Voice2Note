@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "NoteListController.h"
 #import "VNConstants.h"
+#import "WXApi.h"
+
 
 @implementation AppDelegate
 
@@ -25,10 +27,11 @@
   [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
   [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
   
-  
   self.window.rootViewController = navigationController;
 
   [self.window makeKeyAndVisible];
+  
+  [WXApi registerApp:kWeixinAppID];
   return YES;
 }
 
@@ -58,5 +61,6 @@
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

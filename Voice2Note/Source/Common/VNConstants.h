@@ -7,6 +7,7 @@
 //
 
 extern NSString *const kIFlyAppID;
+extern NSString *const kWeixinAppID;
 extern NSString *const kAppName;
 
 extern CGFloat const kHorizontalMargin;
