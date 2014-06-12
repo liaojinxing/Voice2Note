@@ -47,7 +47,7 @@
 {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
   NSString *documentsDirectory = [paths objectAtIndex:0];
-  documentsDirectory = [documentsDirectory stringByAppendingPathComponent:kAppName];
+  documentsDirectory = [documentsDirectory stringByAppendingPathComponent:kAppEngName];
   return documentsDirectory;
 }
 

@@ -49,6 +49,7 @@ static const CGFloat kVoiceButtonWidth = 100;
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  [self.view setBackgroundColor:[UIColor whiteColor]];
 
   [self initComps];
   [self setupNavigationBar];
@@ -229,7 +230,8 @@ static const CGFloat kVoiceButtonWidth = 100;
 - (void)save
 {
   [self hideKeyboard];
-  if (_contentTextView.text == nil || _contentTextView.text.length == 0) {
+  if ((_contentTextView.text == nil || _contentTextView.text.length == 0) &&
+      (_titleTextField.text == nil || _titleTextField.text.length == 0)) {
     [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"InputTextNoData", @"")];
     return;
   }
@@ -247,9 +249,11 @@ static const CGFloat kVoiceButtonWidth = 100;
   BOOL success = [note Persistence];
   if (success) {
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SaveSuccess", @"")];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationCreateFile object:nil userInfo:nil];
   } else {
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SaveFail", @"")];
   }
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - More Action

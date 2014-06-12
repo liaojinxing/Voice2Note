@@ -27,6 +27,16 @@
   [super viewDidLoad];
   [self setupNavigationBar];
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(reloadData)
+                                               name:kNotificationCreateFile
+                                             object:nil];
+}
+
+- (void)dealloc
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupNavigationBar
@@ -37,6 +47,12 @@
                                                                   action:@selector(createTask)];
   self.navigationItem.rightBarButtonItem = item;
   self.navigationItem.title = kAppName;
+}
+
+- (void)reloadData
+{
+  _dataSource = [[VNNoteManager sharedManager] readAllNotes];
+  [self.tableView reloadData];
 }
 
 - (NSMutableArray *)dataSource

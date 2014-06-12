@@ -11,7 +11,7 @@
 #import "VNConstants.h"
 
 static const CGFloat kCellPadding = 8;
-static const CGFloat kVerticalPadding = 5;
+static const CGFloat kVerticalPadding = 6;
 static const CGFloat kLabelHeight = 15;
 
 @interface NoteListCell ()
@@ -89,7 +89,7 @@ static const CGFloat kLabelHeight = 15;
   _backgroundView.frame = bgFrame;
   
   NSTimeInterval interval = [note.createdDate timeIntervalSince1970];
-  int index = (int)interval % 8;
+  int index = (int)interval % self.colorArray.count;
   UIColor *bgColor = [self.colorArray objectAtIndex:index];
   [_backgroundView setBackgroundColor:bgColor];
   

@@ -8,6 +8,9 @@
 
 
 // Home
+
+"AppName" = "懒人笔记";
+
 "HomeButtonItemMoreAction" = "更多";
 "HomeButtonItemListAction" = "过往";
 
