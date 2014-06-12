@@ -34,3 +34,6 @@
 "SaveSuccess" = "保存成功";
 "SaveFail" = "保存失败";
 
+"InputViewTitle" = "标题";
+"InputViewText" = "正文";
+
