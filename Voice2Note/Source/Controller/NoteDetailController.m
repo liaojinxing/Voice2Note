@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
+
   [self initComps];
   [self setupNavigationBar];
 }
@@ -58,7 +58,7 @@
   _titleTextField.layer.borderColor = [UIColor grayColor].CGColor;
   _titleTextField.text = _note.title;
   [self.view addSubview:_titleTextField];
-  
+
   frame = CGRectMake(kHorizontalMargin, 110, self.view.frame.size.width - kHorizontalMargin * 2, 200);
   _contentTextView = [[UITextView alloc] initWithFrame:frame];
   _contentTextView.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -81,7 +81,7 @@
                                                   cancelButtonTitle:NSLocalizedString(@"ActionSheetCancel", @"")
                                              destructiveButtonTitle:nil
                                                   otherButtonTitles:NSLocalizedString(@"ActionSheetSave", @""), NSLocalizedString(@"ActionSheetMail", @""),
-                                NSLocalizedString(@"ActionSheetWeixin", @""), nil];
+                                                      NSLocalizedString(@"ActionSheetWeixin", @""), nil];
   [actionSheet showInView:self.view];
 }
 
@@ -145,6 +145,5 @@
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SendEmailSuccess", @"")];
   }
 }
-
 
 @end

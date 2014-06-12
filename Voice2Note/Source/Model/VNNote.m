@@ -27,7 +27,7 @@
 {
   self = [super init];
   if (self) {
-    _noteID = @([_createdDate timeIntervalSince1970]).stringValue;
+    _noteID = [NSNumber numberWithDouble:[createdDate timeIntervalSince1970]].stringValue;
     _title = title;
     _content = content;
     _createdDate = createdDate;
