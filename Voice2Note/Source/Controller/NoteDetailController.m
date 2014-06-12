@@ -174,7 +174,11 @@ static const CGFloat kVoiceButtonWidth = 100;
   for (NSString *key in dic) {
     [result appendFormat:@"%@", key];
   }
-  _contentTextView.text = [NSString stringWithFormat:@"%@%@", _contentTextView.text, result];
+  if ([_titleTextField isFirstResponder]) {
+    _titleTextField.text = [NSString stringWithFormat:@"%@%@", _titleTextField.text, result];
+  } else {
+    _contentTextView.text = [NSString stringWithFormat:@"%@%@", _contentTextView.text, result];
+  }
 }
 
 - (void)onError:(IFlySpeechError *)error
