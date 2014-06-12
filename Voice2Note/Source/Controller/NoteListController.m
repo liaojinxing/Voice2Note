@@ -11,8 +11,8 @@
 #import "NoteDetailController.h"
 #import "VNNote.h"
 #import "VNConstants.h"
+#import "NoteListCell.h"
 
-static const CGFloat kListCellHeight = 44.0f;
 
 @interface NoteListController ()
 
@@ -26,8 +26,7 @@ static const CGFloat kListCellHeight = 44.0f;
 {
   [super viewDidLoad];
   [self setupNavigationBar];
-  
-  NSLog(@"%@", self.dataSource);
+  self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)setupNavigationBar
@@ -63,7 +62,8 @@ static const CGFloat kListCellHeight = 44.0f;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return kListCellHeight;
+  VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
+  return [NoteListCell heightWithNote:note];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -73,13 +73,12 @@ static const CGFloat kListCellHeight = 44.0f;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell"];
+  NoteListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell"];
   if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListCell"];
+    cell = [[NoteListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListCell"];
   }
   VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
-  cell.textLabel.text = note.title;
-  [cell.textLabel setFont:[UIFont boldSystemFontOfSize:17]];
+  [cell updateWithNote:note];
   return cell;
 }
 
@@ -88,6 +87,7 @@ static const CGFloat kListCellHeight = 44.0f;
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
   NoteDetailController *controller = [[NoteDetailController alloc] initWithNote:note];
+  controller.hidesBottomBarWhenPushed = YES;
   [self.navigationController pushViewController:controller animated:YES];
 }
 

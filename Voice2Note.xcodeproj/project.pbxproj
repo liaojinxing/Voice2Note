@@ -13,14 +13,12 @@
 		C7821A8B19480417008B952D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8A19480417008B952D /* UIKit.framework */; };
 		C7821A9119480417008B952D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7821A8F19480417008B952D /* InfoPlist.strings */; };
 		C7821A9319480417008B952D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821A9219480417008B952D /* main.m */; };
-		C7821A9719480417008B952D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821A9619480417008B952D /* AppDelegate.m */; };
 		C7821A9919480417008B952D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7821A9819480417008B952D /* Images.xcassets */; };
 		C7821AA019480417008B952D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A9F19480417008B952D /* XCTest.framework */; };
 		C7821AA119480417008B952D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8619480417008B952D /* Foundation.framework */; };
 		C7821AA219480417008B952D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8A19480417008B952D /* UIKit.framework */; };
 		C7821AAA19480417008B952D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7821AA819480417008B952D /* InfoPlist.strings */; };
 		C7821AAC19480417008B952D /* Voice2NoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AAB19480417008B952D /* Voice2NoteTests.m */; };
-		C7821ABA19480485008B952D /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AB919480485008B952D /* HomeController.m */; };
 		C7821ABD194804A4008B952D /* NoteListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821ABC194804A4008B952D /* NoteListController.m */; };
 		C7821AC0194804B6008B952D /* NoteDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821ABF194804B6008B952D /* NoteDetailController.m */; };
 		C7821AC219482208008B952D /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AC119482208008B952D /* iflyMSC.framework */; };
@@ -36,6 +34,11 @@
 		C7821ADD1948489C008B952D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821ADB1948483F008B952D /* AddressBook.framework */; };
 		C7821ADF19485FC0008B952D /* ic_add_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */; };
 		C7821AE51949910A008B952D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AE21949910A008B952D /* libWeChatSDK.a */; };
+		C7821AE819499F47008B952D /* NoteListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AE719499F47008B952D /* NoteListCell.m */; };
+		C7821AEB19499FC1008B952D /* UIColor+VNHex.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AEA19499FC1008B952D /* UIColor+VNHex.m */; };
+		C7821AED1949AB2B008B952D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AEC1949AB2B008B952D /* AppDelegate.m */; };
+		C7821AEF1949B405008B952D /* save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821AEE1949B404008B952D /* save@2x.png */; };
+		C7821AF11949B461008B952D /* micro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821AF01949B461008B952D /* micro@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,15 +63,12 @@
 		C7821A9219480417008B952D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7821A9419480417008B952D /* Voice2Note-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Voice2Note-Prefix.pch"; sourceTree = "<group>"; };
 		C7821A9519480417008B952D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C7821A9619480417008B952D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C7821A9819480417008B952D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7821A9E19480417008B952D /* Voice2NoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Voice2NoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7821A9F19480417008B952D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C7821AA719480417008B952D /* Voice2NoteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Voice2NoteTests-Info.plist"; sourceTree = "<group>"; };
 		C7821AA919480417008B952D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C7821AAB19480417008B952D /* Voice2NoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Voice2NoteTests.m; sourceTree = "<group>"; };
-		C7821AB819480485008B952D /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeController.h; path = Source/Controller/HomeController.h; sourceTree = "<group>"; };
-		C7821AB919480485008B952D /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeController.m; path = Source/Controller/HomeController.m; sourceTree = "<group>"; };
 		C7821ABB194804A4008B952D /* NoteListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteListController.h; path = Source/Controller/NoteListController.h; sourceTree = "<group>"; };
 		C7821ABC194804A4008B952D /* NoteListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteListController.m; path = Source/Controller/NoteListController.m; sourceTree = "<group>"; };
 		C7821ABE194804B6008B952D /* NoteDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteDetailController.h; path = Source/Controller/NoteDetailController.h; sourceTree = "<group>"; };
@@ -91,6 +91,13 @@
 		C7821AE21949910A008B952D /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		C7821AE31949910A008B952D /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		C7821AE41949910A008B952D /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		C7821AE619499F47008B952D /* NoteListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteListCell.h; path = Source/Controller/NoteListCell.h; sourceTree = "<group>"; };
+		C7821AE719499F47008B952D /* NoteListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteListCell.m; path = Source/Controller/NoteListCell.m; sourceTree = "<group>"; };
+		C7821AE919499FC1008B952D /* UIColor+VNHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+VNHex.h"; path = "Source/Common/UIColor+VNHex.h"; sourceTree = "<group>"; };
+		C7821AEA19499FC1008B952D /* UIColor+VNHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+VNHex.m"; path = "Source/Common/UIColor+VNHex.m"; sourceTree = "<group>"; };
+		C7821AEC1949AB2B008B952D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C7821AEE1949B404008B952D /* save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save@2x.png"; path = "Resource/save@2x.png"; sourceTree = "<group>"; };
+		C7821AF01949B461008B952D /* micro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "micro@2x.png"; path = "Resource/micro@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +175,7 @@
 				C7821AB619480425008B952D /* Resource */,
 				C7821AB51948041E008B952D /* Source */,
 				C7821A9519480417008B952D /* AppDelegate.h */,
-				C7821A9619480417008B952D /* AppDelegate.m */,
+				C7821AEC1949AB2B008B952D /* AppDelegate.m */,
 				C7821A9819480417008B952D /* Images.xcassets */,
 				C7821A8D19480417008B952D /* Supporting Files */,
 			);
@@ -217,6 +224,8 @@
 		C7821AB619480425008B952D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C7821AF01949B461008B952D /* micro@2x.png */,
+				C7821AEE1949B404008B952D /* save@2x.png */,
 				C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */,
 				C7821ACF19483FD6008B952D /* edit_file@2x.png */,
 				C7821AD019483FD6008B952D /* ic_more_white@2x.png */,
@@ -228,12 +237,12 @@
 		C7821AB719480434008B952D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C7821AB819480485008B952D /* HomeController.h */,
-				C7821AB919480485008B952D /* HomeController.m */,
 				C7821ABB194804A4008B952D /* NoteListController.h */,
 				C7821ABC194804A4008B952D /* NoteListController.m */,
 				C7821ABE194804B6008B952D /* NoteDetailController.h */,
 				C7821ABF194804B6008B952D /* NoteDetailController.m */,
+				C7821AE619499F47008B952D /* NoteListCell.h */,
+				C7821AE719499F47008B952D /* NoteListCell.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -243,6 +252,8 @@
 			children = (
 				C7821ACA19482574008B952D /* VNConstants.h */,
 				C7821ACB19482574008B952D /* VNConstants.m */,
+				C7821AE919499FC1008B952D /* UIColor+VNHex.h */,
+				C7821AEA19499FC1008B952D /* UIColor+VNHex.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -356,6 +367,8 @@
 			files = (
 				C7821A9119480417008B952D /* InfoPlist.strings in Resources */,
 				C7821ACE19482610008B952D /* Localizable.strings in Resources */,
+				C7821AEF1949B405008B952D /* save@2x.png in Resources */,
+				C7821AF11949B461008B952D /* micro@2x.png in Resources */,
 				C7821AD119483FD6008B952D /* edit_file@2x.png in Resources */,
 				C7821AD219483FD6008B952D /* ic_more_white@2x.png in Resources */,
 				C7821ADF19485FC0008B952D /* ic_add_tab@2x.png in Resources */,
@@ -411,10 +424,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7821A9719480417008B952D /* AppDelegate.m in Sources */,
+				C7821AE819499F47008B952D /* NoteListCell.m in Sources */,
 				C7821ABD194804A4008B952D /* NoteListController.m in Sources */,
-				C7821ABA19480485008B952D /* HomeController.m in Sources */,
+				C7821AED1949AB2B008B952D /* AppDelegate.m in Sources */,
 				C7821A9319480417008B952D /* main.m in Sources */,
+				C7821AEB19499FC1008B952D /* UIColor+VNHex.m in Sources */,
 				C7821AC0194804B6008B952D /* NoteDetailController.m in Sources */,
 				C7821ACC19482574008B952D /* VNConstants.m in Sources */,
 				C7821AD7194843B0008B952D /* VNNote.m in Sources */,

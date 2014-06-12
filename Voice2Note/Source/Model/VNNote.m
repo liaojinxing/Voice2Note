@@ -13,6 +13,7 @@
 #define kTitleKey       @"Title"
 #define kContentKey     @"Content"
 #define kCreatedDate    @"CreatedDate"
+#define kUpdatedDate    @"UpdatedDate"
 
 @implementation VNNote
 
@@ -24,6 +25,7 @@
 - (id)initWithTitle:(NSString *)title
             content:(NSString *)content
         createdDate:(NSDate *)createdDate
+         updateDate:(NSDate *)updatedDate
 {
   self = [super init];
   if (self) {
@@ -31,10 +33,14 @@
     _title = title;
     _content = content;
     _createdDate = createdDate;
+    _updatedDate = updatedDate;
     if (_title == nil || _title.length == 0) {
+      /*
       NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
       [formatter setDateFormat:@"yyMMdd-HH:mm:ss"];
       _title = [formatter stringFromDate:_createdDate];
+       */
+      _title = @"无标题笔记";
     }
     if (_content == nil || _content.length == 0) {
       _content = @"";
@@ -54,9 +60,11 @@
   NSString *title = [decoder decodeObjectForKey:kTitleKey];
   NSString *content = [decoder decodeObjectForKey:kContentKey];
   NSDate *createDate = [decoder decodeObjectForKey:kCreatedDate];
+  NSDate *updateDate = [decoder decodeObjectForKey:kUpdatedDate];
   return [self initWithTitle:title
                      content:content
-                 createdDate:createDate];
+                 createdDate:createDate
+                  updateDate:updateDate];
 }
 
 - (BOOL)Persistence

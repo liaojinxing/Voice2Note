@@ -14,6 +14,7 @@
 #import "iflyMSC/IFlySpeechUtility.h"
 #import "iflyMSC/IFlyRecognizerView.h"
 #import "WXApi.h"
+#import "Colours.h"
 @import MessageUI;
 
 
@@ -22,13 +23,12 @@ static const CGFloat kTextFieldHeight = 30;
 static const CGFloat kToolbarHeight = 44;
 static const CGFloat kVoiceButtonWidth = 100;
 
-@interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate,
-MFMailComposeViewControllerDelegate>
+@interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 {
   VNNote *_note;
   UITextField *_titleTextField;
   UITextView *_contentTextView;
-  
+
   UIButton *_voiceButton;
   IFlyRecognizerView *_iflyRecognizerView;
 }
@@ -53,13 +53,13 @@ MFMailComposeViewControllerDelegate>
   [self initComps];
   [self setupNavigationBar];
   [self setupSpeechRecognizer];
-  
-  
+
+
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(keyboardWillShow:)
                                                name:UIKeyboardWillShowNotification
                                              object:nil];
-  
+
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(keyboardWillHide:)
                                                name:UIKeyboardWillHideNotification
@@ -73,11 +73,11 @@ MFMailComposeViewControllerDelegate>
 
 - (void)setupNavigationBar
 {
-  UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"ActionSheetSave", @"")
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(save)];
-  
+  UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"save"]
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:self
+                                                              action:@selector(save)];
+
   UIBarButtonItem *moreItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_more_white"]
                                                                style:UIBarButtonItemStylePlain
                                                               target:self
@@ -88,39 +88,39 @@ MFMailComposeViewControllerDelegate>
 - (void)setupSpeechRecognizer
 {
   NSString *initString = [NSString stringWithFormat:@"%@=%@", [IFlySpeechConstant APPID], kIFlyAppID];
-  
+
   [IFlySpeechUtility createUtility:initString];
   _iflyRecognizerView = [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
   _iflyRecognizerView.delegate = self;
-  
+
   [_iflyRecognizerView setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
   [_iflyRecognizerView setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
   [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
 }
 
-
 - (void)initComps
 {
   CGRect frame = CGRectMake(kHorizontalMargin, kViewOriginY, self.view.frame.size.width - kHorizontalMargin * 2, kTextFieldHeight);
-  
+
   UIBarButtonItem *barButton = [[UIBarButtonItem alloc]
                                 initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                target:self
-                                action:@selector(hideKeyboard)];
+                                                     target:self
+                                                     action:@selector(hideKeyboard)];
   UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 60, kToolbarHeight)];
   toolbar.items = [NSArray arrayWithObject:barButton];
-  
+
   _titleTextField = [[UITextField alloc] initWithFrame:frame];
   if (_note) {
     _titleTextField.text = _note.title;
   } else {
     _titleTextField.placeholder = NSLocalizedString(@"InputViewTitle", @"");
   }
+  _titleTextField.textColor = [UIColor burntOrangeColor];
   _titleTextField.inputAccessoryView = toolbar;
   [self.view addSubview:_titleTextField];
-  
+
   UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kHorizontalMargin, kViewOriginY + kTextFieldHeight, self.view.frame.size.width - kHorizontalMargin, 1)];
-  lineView.backgroundColor = [UIColor orangeColor];
+  lineView.backgroundColor = [UIColor peachColor];
   [self.view addSubview:lineView];
 
   CGFloat textY = kViewOriginY + kTextFieldHeight + kVerticalMargin;
@@ -129,26 +129,27 @@ MFMailComposeViewControllerDelegate>
                      self.view.frame.size.width - kHorizontalMargin * 2,
                      self.view.frame.size.height - textY - kVoiceButtonWidth - kVerticalMargin * 2);
   _contentTextView = [[UITextView alloc] initWithFrame:frame];
-  _contentTextView.font = [UIFont systemFontOfSize:15];
+  _contentTextView.textColor = [UIColor burntOrangeColor];
+  _contentTextView.font = [UIFont systemFontOfSize:16];
   _contentTextView.autocorrectionType = UITextAutocorrectionTypeNo;
   _contentTextView.autocapitalizationType = UITextAutocapitalizationTypeNone;
   [_contentTextView setScrollEnabled:YES];
   if (_note) {
     _contentTextView.text = _note.content;
-  } else {
-    _contentTextView.text = NSLocalizedString(@"InputViewText", @"");
   }
   _contentTextView.inputAccessoryView = toolbar;
   [self.view addSubview:_contentTextView];
-  
+
   _voiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
   [_voiceButton setFrame:CGRectMake((self.view.frame.size.width - kVoiceButtonWidth) / 2, self.view.frame.size.height - kVoiceButtonWidth - kVerticalMargin, kVoiceButtonWidth, kVoiceButtonWidth)];
   [_voiceButton setTitle:NSLocalizedString(@"VoiceInput", @"") forState:UIControlStateNormal];
   [_voiceButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
   _voiceButton.layer.cornerRadius = kVoiceButtonWidth / 2;
   _voiceButton.layer.masksToBounds = YES;
-  [_voiceButton setBackgroundColor:[UIColor redColor]];
+  [_voiceButton setBackgroundColor:[UIColor orangeColor]];
   [_voiceButton addTarget:self action:@selector(startListenning) forControlEvents:UIControlEventTouchUpInside];
+  //[_voiceButton setImage:[UIImage imageNamed:@"micro"] forState:UIControlStateNormal];
+  [_voiceButton setTintColor:[UIColor whiteColor]];
   [self.view addSubview:_voiceButton];
 }
 
@@ -180,7 +181,6 @@ MFMailComposeViewControllerDelegate>
   NSLog(@"errorCode:%@", [error errorDesc]);
 }
 
-
 #pragma mark - Keyboard
 
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -193,7 +193,7 @@ MFMailComposeViewControllerDelegate>
    {
      CGRect keyboardFrame = [[userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
      CGFloat keyboardHeight = keyboardFrame.size.height;
-     
+
      CGRect frame = _contentTextView.frame;
      frame.size.height = self.view.frame.size.height - kViewOriginY - kTextFieldHeight - keyboardHeight - kVerticalMargin - kToolbarHeight,
      _contentTextView.frame = frame;
@@ -229,6 +229,10 @@ MFMailComposeViewControllerDelegate>
 - (void)save
 {
   [self hideKeyboard];
+  if (_contentTextView.text == nil || _contentTextView.text.length == 0) {
+    [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"InputTextNoData", @"")];
+    return;
+  }
   NSDate *createDate;
   if (_note && _note.createdDate) {
     createDate = _note.createdDate;
@@ -237,7 +241,8 @@ MFMailComposeViewControllerDelegate>
   }
   VNNote *note = [[VNNote alloc] initWithTitle:_titleTextField.text
                                        content:_contentTextView.text
-                                   createdDate:createDate];
+                                   createdDate:createDate
+                                    updateDate:[NSDate date]];
   _note = note;
   BOOL success = [note Persistence];
   if (success) {
@@ -292,7 +297,7 @@ MFMailComposeViewControllerDelegate>
 {
   if (result == MFMailComposeResultFailed) {
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SendEmailFail", @"")];
-  } else if (result == MFMailComposeResultSent){
+  } else if (result == MFMailComposeResultSent) {
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SendEmailSuccess", @"")];
   }
   [self dismissViewControllerAnimated:YES completion:nil];
@@ -302,8 +307,8 @@ MFMailComposeViewControllerDelegate>
 
 - (void)shareToWeixin
 {
-  SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-  req.text = [NSString stringWithFormat:@"%@ From:%@", _contentTextView.text, kAppName];
+  SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+  req.text = _contentTextView.text;
   req.bText = YES;
   req.scene = WXSceneTimeline;
   [WXApi sendReq:req];

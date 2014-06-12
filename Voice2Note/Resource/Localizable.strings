@@ -18,7 +18,7 @@
 "ActionSheetCancel" = "取消";
 "ActionSheetSave" = "保存";
 "ActionSheetMail" = "发邮件";
-"ActionSheetWeixin" = "朋友圈";
+"ActionSheetWeixin" = "分享到朋友圈";
 
 "AddTitleForNote" = "给笔记加个标题？";
 "Sure" = "确定";
@@ -36,4 +36,4 @@
 
 "InputViewTitle" = "标题";
 "InputViewText" = "正文";
-
+"InputTextNoData" = "请输入文字";

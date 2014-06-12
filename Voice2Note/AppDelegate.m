@@ -10,7 +10,7 @@
 #import "NoteListController.h"
 #import "VNConstants.h"
 #import "WXApi.h"
-
+#import "Colours.h"
 
 @implementation AppDelegate
 
@@ -22,11 +22,10 @@
 
   NoteListController *controller = [[NoteListController alloc] init];
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+  
   /* customize navigation style */
-
   [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
   [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
-  
   self.window.rootViewController = navigationController;
 
   [self.window makeKeyAndVisible];

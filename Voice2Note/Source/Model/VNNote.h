@@ -14,10 +14,12 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSDate *createdDate;
+@property (nonatomic, strong) NSDate *updatedDate;
 
 - (id)initWithTitle:(NSString *)title
             content:(NSString *)content
-        createdDate:(NSDate *)createdDate;
+        createdDate:(NSDate *)createdDate
+         updateDate:(NSDate *)updatedDate;
 
 - (BOOL)Persistence;
 
