@@ -10,6 +10,7 @@
 #import "VNNoteManager.h"
 #import "NoteDetailController.h"
 #import "VNNote.h"
+#import "VNConstants.h"
 
 static const CGFloat kListCellHeight = 44.0f;
 
@@ -36,8 +37,7 @@ static const CGFloat kListCellHeight = 44.0f;
                                                                   target:self
                                                                   action:@selector(createTask)];
   self.navigationItem.rightBarButtonItem = item;
-  self.navigationItem.title = @"NoteList";
-  
+  self.navigationItem.title = kAppName;
 }
 
 - (NSMutableArray *)dataSource
@@ -85,6 +85,7 @@ static const CGFloat kListCellHeight = 44.0f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
   VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
   NoteDetailController *controller = [[NoteDetailController alloc] initWithNote:note];
   [self.navigationController pushViewController:controller animated:YES];

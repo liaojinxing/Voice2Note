@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NoteListController.h"
-
+#import "VNConstants.h"
 
 @implementation AppDelegate
 
@@ -20,7 +20,6 @@
 
   NoteListController *controller = [[NoteListController alloc] init];
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-  
   /* customize navigation style */
 
   [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];

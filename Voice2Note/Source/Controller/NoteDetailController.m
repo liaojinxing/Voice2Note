@@ -77,8 +77,6 @@ static const CGFloat kButtonHeight = 44;
 
 - (void)setupNavigationBar
 {
-  self.navigationItem.title = kAppName;
-  
   UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"ActionSheetSave", @"")
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
@@ -103,12 +101,21 @@ static const CGFloat kButtonHeight = 44;
 - (void)initComps
 {
   CGRect frame = CGRectMake(kHorizontalMargin, kViewOriginY, self.view.frame.size.width - kHorizontalMargin * 2, kTextFieldHeight);
+  
+  UIBarButtonItem *barButton = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                target:self
+                                action:@selector(hideKeyboard)];
+  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kToolbarHeight)];
+  toolbar.items = [NSArray arrayWithObject:barButton];
+  
   _titleTextField = [[UITextField alloc] initWithFrame:frame];
   if (_note) {
     _titleTextField.text = _note.title;
   } else {
     _titleTextField.placeholder = @"标题";
   }
+  _titleTextField.inputAccessoryView = toolbar;
   [self.view addSubview:_titleTextField];
   
   UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kHorizontalMargin, kViewOriginY + kTextFieldHeight, self.view.frame.size.width - kHorizontalMargin, 1)];
@@ -130,12 +137,6 @@ static const CGFloat kButtonHeight = 44;
   } else {
     _contentTextView.text = @"正文";
   }
-  UIBarButtonItem *barButton = [[UIBarButtonItem alloc]
-                                initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                target:self
-                                action:@selector(hideKeyboard)];
-  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kToolbarHeight)];
-  toolbar.items = [NSArray arrayWithObject:barButton];
   _contentTextView.inputAccessoryView = toolbar;
   [self.view addSubview:_contentTextView];
   
@@ -280,12 +281,11 @@ static const CGFloat kButtonHeight = 44;
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
   if (result == MFMailComposeResultFailed) {
-    [self dismissViewControllerAnimated:YES completion:nil];
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SendEmailFail", @"")];
   } else if (result == MFMailComposeResultSent){
-    [self dismissViewControllerAnimated:YES completion:nil];
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SendEmailSuccess", @"")];
   }
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Weixin
