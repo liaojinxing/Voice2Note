@@ -290,6 +290,16 @@ static const CGFloat kVoiceButtonWidth = 100;
   }
 }
 
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
+{
+  for (UIView *subview in actionSheet.subviews) {
+    if ([subview isKindOfClass:[UIButton class]]) {
+      UIButton *button = (UIButton *)subview;
+      [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    }
+  }
+}
+
 #pragma mark - Eail
 
 - (void)sendEmail
