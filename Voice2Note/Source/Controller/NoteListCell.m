@@ -9,10 +9,14 @@
 #import "NoteListCell.h"
 #import "UIColor+VNHex.h"
 #import "VNConstants.h"
+#import "Colours.h"
 
+static const CGFloat kCellHorizontalMargin = 4;
 static const CGFloat kCellPadding = 8;
-static const CGFloat kVerticalPadding = 6;
+static const CGFloat kVerticalPadding = 4;
 static const CGFloat kLabelHeight = 15;
+
+static const CGFloat kMaxTitleHeight = 100;
 
 @interface NoteListCell ()
 {
@@ -32,12 +36,19 @@ static const CGFloat kLabelHeight = 15;
   if (!_colorArray) {
     NSMutableArray  * array= [NSMutableArray arrayWithObjects:[UIColor colorWithHex:0xa9d8e8],
                               [UIColor colorWithHex:0x0789ba],
-                              [UIColor colorWithHex:0xffbe26],
                               [UIColor colorWithHex:0xb28850],
                               [UIColor colorWithHex:0xe57367],
                               [UIColor colorWithHex:0xbc5779],
                               [UIColor colorWithHex:0x64b043],
                               [UIColor colorWithHex:0xd9e26d],
+                              [UIColor emeraldColor],
+                              [UIColor salmonColor],
+                              [UIColor pinkLipstickColor],
+                              [UIColor violetColor],
+                              [UIColor siennaColor],
+                              [UIColor grapeColor],
+                              [UIColor blueberryColor],
+                              [UIColor eggplantColor],
                               nil];
 
     _colorArray = [NSArray arrayWithArray:array];
@@ -49,10 +60,12 @@ static const CGFloat kLabelHeight = 15;
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
-    _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(kHorizontalMargin,
+    _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(kCellHorizontalMargin,
                                                                kVerticalMargin,
-                                                               self.frame.size.width - kHorizontalMargin * 2,
+                                                               self.frame.size.width - kCellHorizontalMargin * 2,
                                                                0)];
+    _backgroundView.layer.cornerRadius = 4.0f;
+    _backgroundView.layer.masksToBounds = YES;
     [self.contentView addSubview:_backgroundView];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kCellPadding, kCellPadding, _backgroundView.frame.size.width - kCellPadding * 2, 0)];
@@ -74,7 +87,13 @@ static const CGFloat kLabelHeight = 15;
 
 - (void)updateWithNote:(VNNote *)note
 {
-  CGFloat titleHeight = [[self class] heightWithTitle:note.title
+  NSString *string = note.title;
+  [_titleLabel setText:note.title];
+  if (!note.title || note.title.length <= 0 || [note.title isEqualToString:NSLocalizedString(@"NoTitleNote", @"")]) {
+    string = note.content;
+    [_titleLabel setText:note.content];
+  }
+  CGFloat titleHeight = [[self class] heightWithString:string
                                                 width:_backgroundView.frame.size.width - kCellPadding * 2];
   CGRect titleFrame = _titleLabel.frame;
   titleFrame.size.height = titleHeight;
@@ -93,8 +112,6 @@ static const CGFloat kLabelHeight = 15;
   UIColor *bgColor = [self.colorArray objectAtIndex:index];
   [_backgroundView setBackgroundColor:bgColor];
   
-  [_titleLabel setText:note.title];
-  
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
   [_timeLabel setText:[formatter stringFromDate:note.createdDate]];
@@ -103,14 +120,18 @@ static const CGFloat kLabelHeight = 15;
 + (CGFloat)heightWithNote:(VNNote *)note
 {
   CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
-  CGFloat titleHeight = [[self class] heightWithTitle:note.title width:screenWidth - kHorizontalMargin * 2 - kCellPadding * 2];
+  NSString *string = note.title;
+  if (!note.title || note.title.length <= 0 || [note.title isEqualToString:NSLocalizedString(@"NoTitleNote", @"")]) {
+    string = note.content;
+  }
+  CGFloat titleHeight = [[self class] heightWithString:string width:screenWidth - kCellHorizontalMargin * 2 - kCellPadding * 2];
   return kCellPadding + titleHeight + kLabelHeight + kCellPadding + kVerticalPadding * 2;
 }
 
-+ (CGFloat)heightWithTitle:(NSString *)title width:(CGFloat)width
++ (CGFloat)heightWithString:(NSString *)string width:(CGFloat)width
 {
-  NSDictionary *attributes = @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:16] };
-  CGSize size = [title boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
+  NSDictionary *attributes = @{ NSFontAttributeName: [UIFont boldSystemFontOfSize:17] };
+  CGSize size = [string boundingRectWithSize:CGSizeMake(width, kMaxTitleHeight)
                                     options:NSStringDrawingUsesLineFragmentOrigin
                                  attributes:attributes
                                     context:nil].size;

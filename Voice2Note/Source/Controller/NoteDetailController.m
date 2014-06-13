@@ -269,7 +269,8 @@ static const CGFloat kVoiceButtonWidth = 100;
                                                            delegate:self
                                                   cancelButtonTitle:NSLocalizedString(@"ActionSheetCancel", @"")
                                              destructiveButtonTitle:nil
-                                                  otherButtonTitles:NSLocalizedString(@"ActionSheetMail", @""),
+                                                  otherButtonTitles:NSLocalizedString(@"ActionSheetCopy", @""),
+                                NSLocalizedString(@"ActionSheetMail", @""),
                                 NSLocalizedString(@"ActionSheetWeixin", @""), nil];
   [actionSheet showInView:self.view];
 }
@@ -277,10 +278,14 @@ static const CGFloat kVoiceButtonWidth = 100;
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
   if (buttonIndex == 0) {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = _contentTextView.text;
+    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"CopySuccess", @"")];
+  } else if (buttonIndex == 1) {
     if ([MFMailComposeViewController canSendMail]) {
       [self sendEmail];
     }
-  } else if (buttonIndex == 1) {
+  } else if (buttonIndex == 2) {
     [self shareToWeixin];
   }
 }

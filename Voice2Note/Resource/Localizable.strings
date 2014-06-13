@@ -17,20 +17,21 @@
 "TextPlaceHolder" = "";
 "SpeechNoResult" = "无识别结果";
 
-"ActionSheetTitle" = "更多";
 "ActionSheetCancel" = "取消";
 "ActionSheetSave" = "保存";
+"ActionSheetCopy" = "复制";
 "ActionSheetMail" = "发邮件";
 "ActionSheetWeixin" = "分享到朋友圈";
 
 "AddTitleForNote" = "给笔记加个标题？";
 "Sure" = "确定";
 
+"CopySuccess" = "已复制到粘贴板";
 "DeleteFileSuccess" = "删除成功";
 
 "SendEmailSuccess" = "邮件发送成功";
 "SendEmailFail" = "邮件发送失败";
-"CanNoteSendMail" = "当前设备不支持发送邮件";
+"CanNoteSendMail" = "无法发送邮件，请检查设备或网络情况";
 
 "VoiceInput" = "语音输入";
 
@@ -40,6 +41,7 @@
 "InputViewTitle" = "标题";
 "InputViewText" = "正文";
 "InputTextNoData" = "请输入文字";
+"NoTitleNote" = "无标题笔记";
 
 // About
 "AboutTitle" = "关于懒人笔记";

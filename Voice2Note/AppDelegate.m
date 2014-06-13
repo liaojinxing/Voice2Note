@@ -28,8 +28,15 @@
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
   
   /* customize navigation style */
-  [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
-  [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
+  [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+  [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+  NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                             [UIColor whiteColor],NSForegroundColorAttributeName,
+                                              nil];
+  [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+  
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+  
   self.window.rootViewController = navigationController;
 
   [self.window makeKeyAndVisible];
