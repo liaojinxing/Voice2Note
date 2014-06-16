@@ -15,6 +15,8 @@
 #import "iflyMSC/IFlyRecognizerView.h"
 #import "WXApi.h"
 #import "Colours.h"
+#import "Tesseract.h"
+
 @import MessageUI;
 
 
@@ -65,6 +67,16 @@ static const CGFloat kVoiceButtonWidth = 100;
                                            selector:@selector(keyboardWillHide:)
                                                name:UIKeyboardWillHideNotification
                                              object:nil];
+  
+  
+  
+  Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"chi_sim"];
+  //[tesseract setVariableValue:@"0123456789" forKey:@"tessedit_char_whitelist"];
+  [tesseract setImage:[UIImage imageNamed:@"words"]];
+  [tesseract recognize];
+  
+  NSLog(@"%@", [tesseract recognizedText]);
+  [tesseract clear];
 }
 
 - (void)dealloc
