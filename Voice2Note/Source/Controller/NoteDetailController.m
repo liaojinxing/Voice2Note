@@ -71,8 +71,7 @@ static const CGFloat kVoiceButtonWidth = 100;
   
   
   Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"chi_sim"];
-  //[tesseract setVariableValue:@"0123456789" forKey:@"tessedit_char_whitelist"];
-  [tesseract setImage:[UIImage imageNamed:@"words"]];
+  [tesseract setImage:[UIImage imageNamed:@"word_cn"]];
   [tesseract recognize];
   
   NSLog(@"%@", [tesseract recognizedText]);

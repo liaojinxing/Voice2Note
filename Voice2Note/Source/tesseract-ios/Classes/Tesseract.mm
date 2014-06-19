@@ -195,7 +195,7 @@ namespace tesseract {
 
 - (NSString *)recognizedText {
     char* utf8Text = _tesseract->GetUTF8Text();
-    NSString *text = [NSString stringWithUTF8String:utf8Text];
+    NSString *text = utf8Text ? [NSString stringWithUTF8String: utf8Text] : @"";
     delete[] utf8Text;
     return text;
 }
