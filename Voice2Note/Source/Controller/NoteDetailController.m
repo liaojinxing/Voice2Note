@@ -16,6 +16,7 @@
 #import "WXApi.h"
 #import "Colours.h"
 #import "Tesseract.h"
+#import "ELCImagePickerController.h"
 
 @import MessageUI;
 
@@ -25,7 +26,8 @@ static const CGFloat kTextFieldHeight = 30;
 static const CGFloat kToolbarHeight = 44;
 static const CGFloat kVoiceButtonWidth = 100;
 
-@interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate,
+MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePickerControllerDelegate>
 {
   VNNote *_note;
   UITextField *_titleTextField;
@@ -34,6 +36,8 @@ static const CGFloat kVoiceButtonWidth = 100;
   UIButton *_voiceButton;
   IFlyRecognizerView *_iflyRecognizerView;
 }
+@property (nonatomic, strong) ELCImagePickerController *pickerController;
+
 @end
 
 
@@ -68,14 +72,14 @@ static const CGFloat kVoiceButtonWidth = 100;
                                                name:UIKeyboardWillHideNotification
                                              object:nil];
   
-  
-  
-  Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"chi_sim"];
-  [tesseract setImage:[UIImage imageNamed:@"word_cn"]];
+  /*
+  Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
+  [tesseract setImage:[UIImage imageNamed:@"test"]];
   [tesseract recognize];
   
   NSLog(@"%@", [tesseract recognizedText]);
   [tesseract clear];
+   */
 }
 
 - (void)dealloc
@@ -85,7 +89,7 @@ static const CGFloat kVoiceButtonWidth = 100;
 
 - (void)setupNavigationBar
 {
-  UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"save"]
+  UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"ActionSheetSave", @"")
                                                                style:UIBarButtonItemStylePlain
                                                               target:self
                                                               action:@selector(save)];
@@ -114,12 +118,17 @@ static const CGFloat kVoiceButtonWidth = 100;
 {
   CGRect frame = CGRectMake(kHorizontalMargin, kViewOriginY, self.view.frame.size.width - kHorizontalMargin * 2, kTextFieldHeight);
 
-  UIBarButtonItem *barButton = [[UIBarButtonItem alloc]
-                                initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                     target:self
-                                                     action:@selector(hideKeyboard)];
-  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 60, kToolbarHeight)];
-  toolbar.items = [NSArray arrayWithObject:barButton];
+  UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(hideKeyboard)];
+  doneBarButton.width = ceilf(self.view.frame.size.width) / 3 - 30;
+  
+  UIBarButtonItem *voiceBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"micro_small"] style:UIBarButtonItemStylePlain target:self action:@selector(useVoiceInput)];
+  voiceBarButton.width = ceilf(self.view.frame.size.width) / 3;
+  
+  UIBarButtonItem *imageBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit_image-50"] style:UIBarButtonItemStylePlain target:self action:@selector(useImageInput)];
+  imageBarButton.width = ceilf(self.view.frame.size.width) / 3;
+  
+  UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kToolbarHeight)];
+  toolbar.items = [NSArray arrayWithObjects:doneBarButton, voiceBarButton, imageBarButton, nil];
 
   _titleTextField = [[UITextField alloc] initWithFrame:frame];
   if (_note) {
@@ -174,6 +183,12 @@ static const CGFloat kVoiceButtonWidth = 100;
 {
   [_iflyRecognizerView start];
   NSLog(@"start listenning...");
+}
+
+- (void)useVoiceInput
+{
+  [self hideKeyboard];
+  [self startListenning];
 }
 
 #pragma mark IFlyRecognizerViewDelegate
@@ -238,6 +253,59 @@ static const CGFloat kVoiceButtonWidth = 100;
   if ([_contentTextView isFirstResponder]) {
     [_contentTextView resignFirstResponder];
   }
+}
+
+#pragma mark - image input
+
+- (ELCImagePickerController *)pickerController
+{
+  if (!_pickerController) {
+    _pickerController = [[ELCImagePickerController alloc] initImagePicker];
+    _pickerController.imagePickerDelegate = self;
+    _pickerController.maximumImagesCount = 1;
+  }
+  return _pickerController;
+}
+
+- (void)useImageInput
+{
+  [self presentViewController:self.pickerController animated:YES completion:NULL];
+}
+
+
+#pragma mark ELCImagePickerControllerDelegate Methods
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+  });
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    if (info && info.count) {
+      NSDictionary *dict = [info objectAtIndex:0];
+      UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
+      Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
+      [tesseract setImage:image];
+      BOOL success = [tesseract recognize];
+      if (success) {
+        NSString *recognizedText = [tesseract recognizedText];
+        NSLog(@"%@", recognizedText);
+        dispatch_async(dispatch_get_main_queue(), ^{
+          _contentTextView.text = [NSString stringWithFormat:@"%@%@", _contentTextView.text, recognizedText];
+          [SVProgressHUD dismiss];
+        });
+      } else {
+        [SVProgressHUD showErrorWithStatus:@"识别文字失败"];
+      }
+      [tesseract clear];
+    }
+  });
+}
+
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker
+{
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Save
