@@ -128,6 +128,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
   imageBarButton.width = ceilf(self.view.frame.size.width) / 3;
   
   UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kToolbarHeight)];
+  toolbar.tintColor = [UIColor orangeColor];
   toolbar.items = [NSArray arrayWithObjects:doneBarButton, voiceBarButton, imageBarButton, nil];
 
   _titleTextField = [[UITextField alloc] initWithFrame:frame];
