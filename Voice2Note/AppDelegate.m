@@ -13,6 +13,7 @@
 #import "Colours.h"
 #import "VNNote.h"
 #import "VNNoteManager.h"
+#import "UIColor+VNHex.h"
 
 
 @implementation AppDelegate
@@ -28,7 +29,7 @@
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
   
   /* customize navigation style */
-  [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+  [[UINavigationBar appearance] setBarTintColor:[UIColor systemColor]];
   [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
   NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                              [UIColor whiteColor],NSForegroundColorAttributeName,

@@ -17,6 +17,7 @@
 #import "Colours.h"
 #import "Tesseract.h"
 #import "ELCImagePickerController.h"
+#import "UIColor+VNHex.h"
 
 @import MessageUI;
 
@@ -35,6 +36,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
 
   UIButton *_voiceButton;
   IFlyRecognizerView *_iflyRecognizerView;
+  BOOL _isEditingTitle;
 }
 @property (nonatomic, strong) ELCImagePickerController *pickerController;
 
@@ -71,15 +73,6 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
                                            selector:@selector(keyboardWillHide:)
                                                name:UIKeyboardWillHideNotification
                                              object:nil];
-  
-  /*
-  Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
-  [tesseract setImage:[UIImage imageNamed:@"test"]];
-  [tesseract recognize];
-  
-  NSLog(@"%@", [tesseract recognizedText]);
-  [tesseract clear];
-   */
 }
 
 - (void)dealloc
@@ -128,7 +121,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
   imageBarButton.width = ceilf(self.view.frame.size.width) / 3;
   
   UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kToolbarHeight)];
-  toolbar.tintColor = [UIColor orangeColor];
+  toolbar.tintColor = [UIColor systemColor];
   toolbar.items = [NSArray arrayWithObjects:doneBarButton, voiceBarButton, imageBarButton, nil];
 
   _titleTextField = [[UITextField alloc] initWithFrame:frame];
@@ -137,12 +130,12 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
   } else {
     _titleTextField.placeholder = NSLocalizedString(@"InputViewTitle", @"");
   }
-  _titleTextField.textColor = [UIColor burntOrangeColor];
+  _titleTextField.textColor = [UIColor systemDarkColor];
   _titleTextField.inputAccessoryView = toolbar;
   [self.view addSubview:_titleTextField];
 
   UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kHorizontalMargin, kViewOriginY + kTextFieldHeight, self.view.frame.size.width - kHorizontalMargin, 1)];
-  lineView.backgroundColor = [UIColor peachColor];
+  lineView.backgroundColor = [UIColor systemDarkColor];
   [self.view addSubview:lineView];
 
   CGFloat textY = kViewOriginY + kTextFieldHeight + kVerticalMargin;
@@ -151,7 +144,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
                      self.view.frame.size.width - kHorizontalMargin * 2,
                      self.view.frame.size.height - textY - kVoiceButtonWidth - kVerticalMargin * 2);
   _contentTextView = [[UITextView alloc] initWithFrame:frame];
-  _contentTextView.textColor = [UIColor burntOrangeColor];
+  _contentTextView.textColor = [UIColor systemDarkColor];
   _contentTextView.font = [UIFont systemFontOfSize:16];
   _contentTextView.autocorrectionType = UITextAutocorrectionTypeNo;
   _contentTextView.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -168,9 +161,8 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
   [_voiceButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
   _voiceButton.layer.cornerRadius = kVoiceButtonWidth / 2;
   _voiceButton.layer.masksToBounds = YES;
-  [_voiceButton setBackgroundColor:[UIColor orangeColor]];
-  [_voiceButton addTarget:self action:@selector(startListenning) forControlEvents:UIControlEventTouchUpInside];
-  //[_voiceButton setImage:[UIImage imageNamed:@"micro"] forState:UIControlStateNormal];
+  [_voiceButton setBackgroundColor:[UIColor systemColor]];
+  [_voiceButton addTarget:self action:@selector(useVoiceInput) forControlEvents:UIControlEventTouchUpInside];
   [_voiceButton setTintColor:[UIColor whiteColor]];
   [self.view addSubview:_voiceButton];
 }
@@ -201,7 +193,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
   for (NSString *key in dic) {
     [result appendFormat:@"%@", key];
   }
-  if ([_titleTextField isFirstResponder]) {
+  if (_isEditingTitle) {
     _titleTextField.text = [NSString stringWithFormat:@"%@%@", _titleTextField.text, result];
   } else {
     _contentTextView.text = [NSString stringWithFormat:@"%@%@", _contentTextView.text, result];
@@ -249,9 +241,11 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
 - (void)hideKeyboard
 {
   if ([_titleTextField isFirstResponder]) {
+    _isEditingTitle = YES;
     [_titleTextField resignFirstResponder];
   }
   if ([_contentTextView isFirstResponder]) {
+    _isEditingTitle = NO;
     [_contentTextView resignFirstResponder];
   }
 }
@@ -280,13 +274,13 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
 {
   [self dismissViewControllerAnimated:YES completion:nil];
   dispatch_async(dispatch_get_main_queue(), ^{
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Recognizing", @"")];
   });
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     if (info && info.count) {
       NSDictionary *dict = [info objectAtIndex:0];
       UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
-      Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
+      Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"chi_sim"];
       [tesseract setImage:image];
       BOOL success = [tesseract recognize];
       if (success) {
@@ -375,7 +369,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
   for (UIView *subview in actionSheet.subviews) {
     if ([subview isKindOfClass:[UIButton class]]) {
       UIButton *button = (UIButton *)subview;
-      [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+      [button setTitleColor:[UIColor systemColor] forState:UIControlStateNormal];
     }
   }
 }

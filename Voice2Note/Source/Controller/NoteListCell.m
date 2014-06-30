@@ -34,21 +34,40 @@ static const CGFloat kMaxTitleHeight = 100;
 - (NSArray *)colorArray
 {
   if (!_colorArray) {
-    NSMutableArray  * array= [NSMutableArray arrayWithObjects:[UIColor colorWithHex:0xa9d8e8],
-                              [UIColor colorWithHex:0x0789ba],
-                              [UIColor colorWithHex:0xb28850],
-                              [UIColor colorWithHex:0xe57367],
-                              [UIColor colorWithHex:0xbc5779],
-                              [UIColor colorWithHex:0x64b043],
-                              [UIColor colorWithHex:0xd9e26d],
+    NSMutableArray  * array= [NSMutableArray arrayWithObjects:
                               [UIColor emeraldColor],
+                              [UIColor fadedBlueColor],
+                              [UIColor cantaloupeColor],
+                              [UIColor oliveColor],
                               [UIColor salmonColor],
-                              [UIColor pinkLipstickColor],
-                              [UIColor violetColor],
-                              [UIColor siennaColor],
-                              [UIColor grapeColor],
+                              [UIColor easterPinkColor],
                               [UIColor blueberryColor],
-                              [UIColor eggplantColor],
+                              [UIColor turquoiseColor],
+                              [UIColor blueberryColor],
+                              [UIColor warmGrayColor],
+                              [UIColor tealColor],
+                              [UIColor lavenderColor],
+                              [UIColor bananaColor],
+                              [UIColor cornflowerColor],
+                              [UIColor skyBlueColor],
+                              [UIColor coralColor],
+                              [UIColor sandColor],
+                              [UIColor almondColor],
+                              [UIColor cardTableColor],
+                              [UIColor pastelGreenColor],
+                              [UIColor waveColor],
+                              [UIColor orchidColor],
+                              [UIColor mandarinColor],
+                              [UIColor carrotColor],
+                              [UIColor orangeColor],
+                              [UIColor indianRedColor],
+                              [UIColor maroonColor],
+                              [UIColor violetColor],
+                              [UIColor coolGrayColor],
+                              [UIColor hollyGreenColor],
+                              [UIColor plumColor],
+                              [UIColor coolPurpleColor],
+                              [UIColor palePurpleColor],
                               nil];
 
     _colorArray = [NSArray arrayWithArray:array];
@@ -125,7 +144,7 @@ static const CGFloat kMaxTitleHeight = 100;
     string = note.content;
   }
   CGFloat titleHeight = [[self class] heightWithString:string width:screenWidth - kCellHorizontalMargin * 2 - kCellPadding * 2];
-  return kCellPadding + titleHeight + kLabelHeight + kCellPadding + kVerticalPadding * 2;
+  return kCellPadding + titleHeight + kLabelHeight + kCellPadding + kVerticalPadding;
 }
 
 + (CGFloat)heightWithString:(NSString *)string width:(CGFloat)width

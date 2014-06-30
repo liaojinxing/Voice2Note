@@ -7,6 +7,7 @@
 //
 
 #import "UIColor+VNHex.h"
+#import "Colours.h"
 
 @implementation UIColor (VNHex)
 
@@ -20,6 +21,16 @@
                          green:((float)((rgbHexValue & 0xFF00) >> 8))/255.0
                           blue:((float)(rgbHexValue & 0xFF))/255.0
                          alpha:alpha];
+}
+
++ (UIColor *)systemColor
+{
+  return [UIColor emeraldColor];
+}
+
++ (UIColor *)systemDarkColor
+{
+  return [UIColor cactusGreenColor];
 }
 
 @end

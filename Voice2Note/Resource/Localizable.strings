@@ -43,6 +43,8 @@
 "InputTextNoData" = "请输入文字";
 "NoTitleNote" = "无标题笔记";
 
+"Recognizing" = "识别中...";
+
 // About
 "AboutTitle" = "关于懒人笔记";
 "AboutText" = "懒人笔记是一款为懒人设计的笔记本，你只需要通过语音输入，即可完成笔记的书写。\n同时支持发邮件，分享到朋友圈等附加功能。\n大部分情况下你无需动笔，只需要靠说，就可以轻松发邮件，是提高效率的好工具。\n开发者：http://github.com/liaojinxing";

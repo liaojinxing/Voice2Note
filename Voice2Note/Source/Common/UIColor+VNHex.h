@@ -14,4 +14,8 @@
 
 + (UIColor *) colorWithHex:(NSInteger)rgbHexValue alpha:(CGFloat)alpha;
 
++ (UIColor *)systemColor;
+
++ (UIColor *)systemDarkColor;
+
 @end
