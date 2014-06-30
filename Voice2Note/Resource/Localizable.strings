@@ -34,6 +34,10 @@
 "CanNoteSendMail" = "无法发送邮件，请检查设备或网络情况";
 
 "VoiceInput" = "语音输入";
+"ImageInputTitle" = "图片输入";
+"ImageInputMessage" = "选择一张带有文字的图片，懒人笔记将会识别出图片中的文字。请尽量使用清晰度较高，背景单纯的图片";
+"ImageInputCancel" = "知道了";
+"ImageInputSure" = "识别一下";
 
 "SaveSuccess" = "保存成功";
 "SaveFail" = "保存失败";
@@ -44,6 +48,7 @@
 "NoTitleNote" = "无标题笔记";
 
 "Recognizing" = "识别中...";
+"RecognizeFail" = "识别文字失败";
 
 // About
 "AboutTitle" = "关于懒人笔记";

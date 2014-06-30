@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8321E68A15AE491F981EE0DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3642E47F94B6EAB1CE461 /* libPods.a */; };
+		C7470A92196164CB00FD154B /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C7470A91196164CB00FD154B /* AppContext.m */; };
 		C77BCDB4194EC204004BB438 /* Tesseract.mm in Sources */ = {isa = PBXBuildFile; fileRef = C77BCD19194EC204004BB438 /* Tesseract.mm */; };
 		C77BCDB5194EC204004BB438 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C77BCD1A194EC204004BB438 /* LICENSE */; };
 		C77BCDB6194EC204004BB438 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C77BCD1B194EC204004BB438 /* README.md */; };
@@ -74,6 +75,8 @@
 /* Begin PBXFileReference section */
 		4FC9EB7DAA15488F81D9D006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		90D3642E47F94B6EAB1CE461 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7470A90196164CB00FD154B /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppContext.h; path = Source/AppContext.h; sourceTree = "<group>"; };
+		C7470A91196164CB00FD154B /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppContext.m; path = Source/AppContext.m; sourceTree = "<group>"; };
 		C77BCD18194EC204004BB438 /* Tesseract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tesseract.h; sourceTree = "<group>"; };
 		C77BCD19194EC204004BB438 /* Tesseract.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Tesseract.mm; sourceTree = "<group>"; };
 		C77BCD1A194EC204004BB438 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -324,6 +327,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7470A93196164D400FD154B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C7470A90196164CB00FD154B /* AppContext.h */,
+				C7470A91196164CB00FD154B /* AppContext.m */,
+				C7821A9519480417008B952D /* AppDelegate.h */,
+				C7821AEC1949AB2B008B952D /* AppDelegate.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		C77BCD16194EC204004BB438 /* tesseract-ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,8 +590,6 @@
 				C7821AE0194990F7008B952D /* Library */,
 				C7821AB619480425008B952D /* Resource */,
 				C7821AB51948041E008B952D /* Source */,
-				C7821A9519480417008B952D /* AppDelegate.h */,
-				C7821AEC1949AB2B008B952D /* AppDelegate.m */,
 				C7821A9819480417008B952D /* Images.xcassets */,
 				C7821A8D19480417008B952D /* Supporting Files */,
 			);
@@ -616,6 +628,7 @@
 		C7821AB51948041E008B952D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C7470A93196164D400FD154B /* App */,
 				C7821AD41948437E008B952D /* Model */,
 				C7821AC919482557008B952D /* Common */,
 				C7821AB719480434008B952D /* Controller */,
@@ -887,6 +900,7 @@
 				C79B929D1952F17D0071E995 /* ELCAssetCell.m in Sources */,
 				C77BCDB4194EC204004BB438 /* Tesseract.mm in Sources */,
 				C7821ACC19482574008B952D /* VNConstants.m in Sources */,
+				C7470A92196164CB00FD154B /* AppContext.m in Sources */,
 				C7821AD7194843B0008B952D /* VNNote.m in Sources */,
 				C7821ADA194844C0008B952D /* VNNoteManager.m in Sources */,
 			);

@@ -18,9 +18,8 @@
 #import "Tesseract.h"
 #import "ELCImagePickerController.h"
 #import "UIColor+VNHex.h"
-
+#import "AppContext.h"
 @import MessageUI;
-
 
 static const CGFloat kViewOriginY = 70;
 static const CGFloat kTextFieldHeight = 30;
@@ -28,7 +27,7 @@ static const CGFloat kToolbarHeight = 44;
 static const CGFloat kVoiceButtonWidth = 100;
 
 @interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate,
-MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePickerControllerDelegate>
+MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UIAlertViewDelegate>
 {
   VNNote *_note;
   UITextField *_titleTextField;
@@ -264,7 +263,26 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
 
 - (void)useImageInput
 {
-  [self presentViewController:self.pickerController animated:YES completion:NULL];
+  [self hideKeyboard];
+  if (![[AppContext appContext] hasUploadImage]) {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ImageInputTitle", @"")
+                                                        message:NSLocalizedString(@"ImageInputMessage", @"")
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"ImageInputCancel", @"")
+                                              otherButtonTitles:NSLocalizedString(@"ImageInputSure", @""), nil];
+    
+    [alertView show];
+  } else {
+    [self presentViewController:self.pickerController animated:YES completion:NULL];
+  }
+  [[AppContext appContext] setHasUploadImage:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  if (buttonIndex == 1) {
+    [self presentViewController:self.pickerController animated:YES completion:NULL];
+  }
 }
 
 
@@ -291,7 +309,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
           [SVProgressHUD dismiss];
         });
       } else {
-        [SVProgressHUD showErrorWithStatus:@"识别文字失败"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"RecognizeFail", @"")];
       }
       [tesseract clear];
     }
