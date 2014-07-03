@@ -30,7 +30,7 @@
 
 + (UIColor *)systemDarkColor
 {
-  return [UIColor cactusGreenColor];
+  return [UIColor hollyGreenColor];
 }
 
 @end

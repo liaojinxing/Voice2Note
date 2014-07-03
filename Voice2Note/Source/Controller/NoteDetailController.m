@@ -422,6 +422,11 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
 
 - (void)shareToWeixin
 {
+  if (_contentTextView.text == nil || _contentTextView.text.length == 0) {
+    [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"InputTextNoData", @"")];
+    return;
+  }
+  
   SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
   req.text = _contentTextView.text;
   req.bText = YES;

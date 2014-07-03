@@ -95,10 +95,7 @@
 - (void)deleteNote:(VNNote *)note
 {
   NSString *filePath = [_docPath stringByAppendingPathComponent:note.noteID];
-  BOOL success = [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
-  if (success) {
-    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"DeleteFileSuccess", @"")];
-  }
+  [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
 }
 
 @end
