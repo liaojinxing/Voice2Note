@@ -65,6 +65,7 @@
 
 - (void)createTask
 {
+  [MobClick event:kEventAddNewNote];
   NoteDetailController *controller = [[NoteDetailController alloc] init];
   [self.navigationController pushViewController:controller animated:YES];
 }
@@ -101,7 +102,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
-  [MobClick event:kEventAddNewNote];
   VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
   NoteDetailController *controller = [[NoteDetailController alloc] initWithNote:note];
   controller.hidesBottomBarWhenPushed = YES;
