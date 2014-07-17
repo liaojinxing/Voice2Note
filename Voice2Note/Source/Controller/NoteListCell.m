@@ -66,8 +66,6 @@ static const CGFloat kMaxTitleHeight = 100;
                               [UIColor coolGrayColor],
                               [UIColor hollyGreenColor],
                               [UIColor plumColor],
-                              [UIColor coolPurpleColor],
-                              [UIColor palePurpleColor],
                               nil];
 
     _colorArray = [NSArray arrayWithArray:array];

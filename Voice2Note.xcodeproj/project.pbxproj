@@ -788,6 +788,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = jinxing;
 				TargetAttributes = {
+					C7821A8219480417008B952D = {
+						DevelopmentTeam = 8CMA73KN4U;
+					};
 					C7821A9D19480417008B952D = {
 						TestTargetID = C7821A8219480417008B952D;
 					};
@@ -1023,6 +1026,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liao Jinxing (WFC59XXUQC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Liao Jinxing (WFC59XXUQC)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
@@ -1036,6 +1041,7 @@
 					"$(PROJECT_DIR)/Voice2Note/Source/tesseract-ios/tesseract-ios-lib/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "80727D28-3195-47E6-A702-7A707DD625E9";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1048,6 +1054,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
@@ -1061,6 +1069,7 @@
 					"$(PROJECT_DIR)/Voice2Note/Source/tesseract-ios/tesseract-ios-lib/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E8FD832F-A4F3-4237-B55D-4384DCC9D012";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -84,6 +84,7 @@
                                       updateDate:[NSDate date]];
     [[VNNoteManager sharedManager] storeNote:note];
     [userDefaults setBool:YES forKey:@"hasInitFile"];
+    [userDefaults synchronize];
   }
 }
 
