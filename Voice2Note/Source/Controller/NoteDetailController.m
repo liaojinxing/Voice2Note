@@ -15,8 +15,6 @@
 #import "iflyMSC/IFlyRecognizerView.h"
 #import "WXApi.h"
 #import "Colours.h"
-#import "Tesseract.h"
-#import "ELCImagePickerController.h"
 #import "UIColor+VNHex.h"
 #import "AppContext.h"
 @import MessageUI;
@@ -27,7 +25,7 @@ static const CGFloat kToolbarHeight = 44;
 static const CGFloat kVoiceButtonWidth = 100;
 
 @interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate,
-MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UIAlertViewDelegate>
+MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 {
   VNNote *_note;
   UITextField *_titleTextField;
@@ -37,7 +35,6 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
   IFlyRecognizerView *_iflyRecognizerView;
   BOOL _isEditingTitle;
 }
-@property (nonatomic, strong) ELCImagePickerController *pickerController;
 
 @end
 
@@ -116,12 +113,9 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
   UIBarButtonItem *voiceBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"micro_small"] style:UIBarButtonItemStylePlain target:self action:@selector(useVoiceInput)];
   voiceBarButton.width = ceilf(self.view.frame.size.width) / 3;
   
-  UIBarButtonItem *imageBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit_image-50"] style:UIBarButtonItemStylePlain target:self action:@selector(useImageInput)];
-  imageBarButton.width = ceilf(self.view.frame.size.width) / 3;
-  
   UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kToolbarHeight)];
   toolbar.tintColor = [UIColor systemColor];
-  toolbar.items = [NSArray arrayWithObjects:doneBarButton, voiceBarButton, imageBarButton, nil];
+  toolbar.items = [NSArray arrayWithObjects:doneBarButton, voiceBarButton, nil];
 
   _titleTextField = [[UITextField alloc] initWithFrame:frame];
   if (_note) {
@@ -247,78 +241,6 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, ELCImagePic
     _isEditingTitle = NO;
     [_contentTextView resignFirstResponder];
   }
-}
-
-#pragma mark - image input
-
-- (ELCImagePickerController *)pickerController
-{
-  if (!_pickerController) {
-    _pickerController = [[ELCImagePickerController alloc] initImagePicker];
-    _pickerController.imagePickerDelegate = self;
-    _pickerController.maximumImagesCount = 1;
-  }
-  return _pickerController;
-}
-
-- (void)useImageInput
-{
-  [self hideKeyboard];
-  if (![[AppContext appContext] hasUploadImage]) {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ImageInputTitle", @"")
-                                                        message:NSLocalizedString(@"ImageInputMessage", @"")
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"ImageInputCancel", @"")
-                                              otherButtonTitles:NSLocalizedString(@"ImageInputSure", @""), nil];
-    
-    [alertView show];
-  } else {
-    [self presentViewController:self.pickerController animated:YES completion:NULL];
-  }
-  [[AppContext appContext] setHasUploadImage:YES];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-  if (buttonIndex == 1) {
-    [self presentViewController:self.pickerController animated:YES completion:NULL];
-  }
-}
-
-
-#pragma mark ELCImagePickerControllerDelegate Methods
-
-- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info
-{
-  [self dismissViewControllerAnimated:YES completion:nil];
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"Recognizing", @"")];
-  });
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    if (info && info.count) {
-      NSDictionary *dict = [info objectAtIndex:0];
-      UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
-      Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"chi_sim"];
-      [tesseract setImage:image];
-      BOOL success = [tesseract recognize];
-      if (success) {
-        NSString *recognizedText = [tesseract recognizedText];
-        NSLog(@"%@", recognizedText);
-        dispatch_async(dispatch_get_main_queue(), ^{
-          _contentTextView.text = [NSString stringWithFormat:@"%@%@", _contentTextView.text, recognizedText];
-          [SVProgressHUD dismiss];
-        });
-      } else {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"RecognizeFail", @"")];
-      }
-      [tesseract clear];
-    }
-  });
-}
-
-- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker
-{
-  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Save
