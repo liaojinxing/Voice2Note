@@ -12,7 +12,7 @@
 #import "VNNote.h"
 #import "VNConstants.h"
 #import "NoteListCell.h"
-
+#import "MobClick.h"
 
 @interface NoteListController ()
 
@@ -101,6 +101,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  [MobClick event:kEventAddNewNote];
   VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
   NoteDetailController *controller = [[NoteDetailController alloc] initWithNote:note];
   controller.hidesBottomBarWhenPushed = YES;

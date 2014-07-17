@@ -17,6 +17,7 @@
 #import "Colours.h"
 #import "UIColor+VNHex.h"
 #import "AppContext.h"
+#import "MobClick.h"
 @import MessageUI;
 
 static const CGFloat kViewOriginY = 70;
@@ -175,6 +176,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertView
 {
   [self hideKeyboard];
   [self startListenning];
+  [MobClick event:kEventClickVoiceButton];
 }
 
 #pragma mark IFlyRecognizerViewDelegate
@@ -354,6 +356,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertView
   req.bText = YES;
   req.scene = WXSceneTimeline;
   [WXApi sendReq:req];
+  [MobClick event:kEventShareToWeixin];
 }
 
 @end

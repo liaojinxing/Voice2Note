@@ -15,3 +15,8 @@ extern CGFloat const kHorizontalMargin;
 extern CGFloat const kVerticalMargin;
 
 extern NSString *const kNotificationCreateFile;
+
+
+extern NSString *const kEventAddNewNote;
+extern NSString *const kEventShareToWeixin;
+extern NSString *const kEventClickVoiceButton;

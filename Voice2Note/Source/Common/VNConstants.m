@@ -15,3 +15,7 @@ CGFloat const kHorizontalMargin = 10.f;
 CGFloat const kVerticalMargin = 10.f;
 
 NSString *const kNotificationCreateFile = @"kNotificationCreateFile";
+
+NSString *const kEventAddNewNote = @"AddNewNote";
+NSString *const kEventShareToWeixin = @"ShareToWeixin";
+NSString *const kEventClickVoiceButton = @"ClickVoiceButton";

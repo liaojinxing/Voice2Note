@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8321E68A15AE491F981EE0DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3642E47F94B6EAB1CE461 /* libPods.a */; };
+		C73B88501977CEFB007EE3D0 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C73B884D1977CEFB007EE3D0 /* libMobClickLibrary.a */; };
+		C73B88521977CF19007EE3D0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C73B88511977CF19007EE3D0 /* libz.dylib */; };
 		C7470A92196164CB00FD154B /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C7470A91196164CB00FD154B /* AppContext.m */; };
 		C7821A8719480417008B952D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8619480417008B952D /* Foundation.framework */; };
 		C7821A8919480417008B952D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821A8819480417008B952D /* CoreGraphics.framework */; };
@@ -57,6 +59,10 @@
 /* Begin PBXFileReference section */
 		4FC9EB7DAA15488F81D9D006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		90D3642E47F94B6EAB1CE461 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C73B884D1977CEFB007EE3D0 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		C73B884E1977CEFB007EE3D0 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		C73B884F1977CEFB007EE3D0 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		C73B88511977CF19007EE3D0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C7470A90196164CB00FD154B /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppContext.h; path = Source/AppContext.h; sourceTree = "<group>"; };
 		C7470A91196164CB00FD154B /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppContext.m; path = Source/AppContext.m; sourceTree = "<group>"; };
 		C7821A8319480417008B952D /* Voice2Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voice2Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73B88521977CF19007EE3D0 /* libz.dylib in Frameworks */,
 				C7821ADD1948489C008B952D /* AddressBook.framework in Frameworks */,
 				C7821AC819482235008B952D /* AudioToolbox.framework in Frameworks */,
 				C7821AC61948222B008B952D /* SystemConfiguration.framework in Frameworks */,
@@ -121,6 +128,7 @@
 				C7821A8919480417008B952D /* CoreGraphics.framework in Frameworks */,
 				C7821A8B19480417008B952D /* UIKit.framework in Frameworks */,
 				C7821A8719480417008B952D /* Foundation.framework in Frameworks */,
+				C73B88501977CEFB007EE3D0 /* libMobClickLibrary.a in Frameworks */,
 				8321E68A15AE491F981EE0DC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +146,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C73B884C1977CEFB007EE3D0 /* Umeng */ = {
+			isa = PBXGroup;
+			children = (
+				C73B884D1977CEFB007EE3D0 /* libMobClickLibrary.a */,
+				C73B884E1977CEFB007EE3D0 /* MobClick.h */,
+				C73B884F1977CEFB007EE3D0 /* MobClickSocialAnalytics.h */,
+			);
+			name = Umeng;
+			path = Source/Library/Umeng;
+			sourceTree = "<group>";
+		};
 		C7470A93196164D400FD154B /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +191,7 @@
 		C7821A8519480417008B952D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C73B88511977CF19007EE3D0 /* libz.dylib */,
 				C7821ADB1948483F008B952D /* AddressBook.framework */,
 				C7821AC719482235008B952D /* AudioToolbox.framework */,
 				C7821AC51948222B008B952D /* SystemConfiguration.framework */,
@@ -291,6 +311,7 @@
 		C7821AE0194990F7008B952D /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				C73B884C1977CEFB007EE3D0 /* Umeng */,
 				C7821AE11949910A008B952D /* Weixin */,
 			);
 			name = Library;
@@ -592,6 +613,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/Weixin",
+					"$(PROJECT_DIR)/Voice2Note/Source/Library/Umeng",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "80727D28-3195-47E6-A702-7A707DD625E9";
@@ -621,6 +643,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/Weixin",
+					"$(PROJECT_DIR)/Voice2Note/Source/Library/Umeng",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "E8FD832F-A4F3-4237-B55D-4384DCC9D012";

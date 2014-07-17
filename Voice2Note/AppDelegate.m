@@ -14,7 +14,7 @@
 #import "VNNote.h"
 #import "VNNoteManager.h"
 #import "UIColor+VNHex.h"
-
+#import "MobClick.h"
 
 @implementation AppDelegate
 
@@ -43,6 +43,9 @@
   [self.window makeKeyAndVisible];
   
   [WXApi registerApp:kWeixinAppID];
+  
+  [MobClick startWithAppkey:@"53c7945356240bd36002dabe" reportPolicy:BATCH channelId:nil];
+
   return YES;
 }
 
