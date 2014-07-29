@@ -8,7 +8,7 @@
 
 #import "AppContext.h"
 
-static NSString* kHasUploadImageKey = @"kHasUploadImageKey";
+static NSString* kHasUploadAddressBookKey = @"kHasUploadAddressBookKey";
 
 @implementation AppContext
 
@@ -22,14 +22,14 @@ static NSString* kHasUploadImageKey = @"kHasUploadImageKey";
   return instance;
 }
 
-- (BOOL)hasUploadImage
+- (BOOL)hasUploadAddressBook
 {
-  return [[[NSUserDefaults standardUserDefaults] objectForKey:kHasUploadImageKey] boolValue];
+  return [[[NSUserDefaults standardUserDefaults] objectForKey:kHasUploadAddressBookKey] boolValue];
 }
 
-- (void)setHasUploadImage:(BOOL)hasUploadImage
+- (void)setHasUploadAddressBook:(BOOL)hasUploadAddressBook
 {
-  [[NSUserDefaults standardUserDefaults] setBool:hasUploadImage forKey:kHasUploadImageKey];
+  [[NSUserDefaults standardUserDefaults] setBool:hasUploadAddressBook forKey:kHasUploadAddressBookKey];
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

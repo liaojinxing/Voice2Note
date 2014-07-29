@@ -12,6 +12,6 @@
 
 + (instancetype)appContext;
 
-@property (nonatomic, assign) BOOL hasUploadImage;
+@property (nonatomic, assign) BOOL hasUploadAddressBook;
 
 @end

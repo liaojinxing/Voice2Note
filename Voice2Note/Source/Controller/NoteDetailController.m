@@ -13,6 +13,8 @@
 #import "iflyMSC/IFlySpeechConstant.h"
 #import "iflyMSC/IFlySpeechUtility.h"
 #import "iflyMSC/IFlyRecognizerView.h"
+#import "iflyMSC/IFlyDataUploader.h"
+#import "iflyMSC/IFlyContact.h"
 #import "WXApi.h"
 #import "Colours.h"
 #import "UIColor+VNHex.h"
@@ -26,7 +28,7 @@ static const CGFloat kToolbarHeight = 44;
 static const CGFloat kVoiceButtonWidth = 100;
 
 @interface NoteDetailController () <IFlyRecognizerViewDelegate, UIActionSheetDelegate,
-MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
+                                    MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 {
   VNNote *_note;
   UITextField *_titleTextField;
@@ -110,10 +112,10 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertView
 
   UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(hideKeyboard)];
   doneBarButton.width = ceilf(self.view.frame.size.width) / 3 - 30;
-  
+
   UIBarButtonItem *voiceBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"micro_small"] style:UIBarButtonItemStylePlain target:self action:@selector(useVoiceInput)];
   voiceBarButton.width = ceilf(self.view.frame.size.width) / 3;
-  
+
   UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kToolbarHeight)];
   toolbar.tintColor = [UIColor systemColor];
   toolbar.items = [NSArray arrayWithObjects:doneBarButton, voiceBarButton, nil];
@@ -174,9 +176,34 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertView
 
 - (void)useVoiceInput
 {
+  if (![AppContext appContext].hasUploadAddressBook) {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:NSLocalizedString(@"UploadABForBetter", @"")
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"ActionSheetCancel", @"")
+                                              otherButtonTitles:NSLocalizedString(@"GotoUploadAB", @""), nil];
+    [alertView show];
+    [[AppContext appContext] setHasUploadAddressBook:YES];
+    return;
+  }
+  
   [self hideKeyboard];
   [self startListenning];
   [MobClick event:kEventClickVoiceButton];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  if (buttonIndex == 1) {
+    IFlyDataUploader *_uploader = [[IFlyDataUploader alloc] init];
+    IFlyContact *iFlyContact = [[IFlyContact alloc] init]; NSString *contactList = [iFlyContact contact];
+    [_uploader setParameter:@"uup" forKey:@"subject"];
+    [_uploader setParameter:@"contact" forKey:@"dtt"];
+    //启动上传
+    [_uploader uploadDataWithCompletionHandler:^(NSString *grammerID, IFlySpeechError *error) {
+      [SVProgressHUD showSuccessWithStatus:@"上传成功"];
+    } name:@"contact" data:contactList];
+  }
 }
 
 #pragma mark IFlyRecognizerViewDelegate
@@ -350,7 +377,7 @@ MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertView
     [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"InputTextNoData", @"")];
     return;
   }
-  
+
   SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
   req.text = _contentTextView.text;
   req.bText = YES;
