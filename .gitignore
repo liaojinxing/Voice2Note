@@ -7,9 +7,9 @@ Pods/
 
 #ios
 .DS_Store
-build/
 *~
 project.xcworkspace/
+*.xccheckout
 xcuserdata/
 .svn
 .idea
