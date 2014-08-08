@@ -7,11 +7,9 @@ iTunes地址： https://itunes.apple.com/cn/app/lan-ren-bi-ji-zhi-chi-yu-yin/id8
 - 同时支持发邮件，分享到朋友圈等附加功能。
 - 大部分情况下你无需动笔，只需要靠说，就可以轻松记笔记、发邮件，是提高效率的好工具。
 
-![首页](ScreenShot/home_40.png)
-
-![笔记](ScreenShot/detail_40.png)
-
-![语音](ScreenShot/voice_40.png)
+<img src="ScreenShot/home_40.png" alt="首页" width="200px" hspace="10"/>
+<img src="ScreenShot/detail_40.png" alt="笔记" width="200px" hspace="10"/>
+<img src="ScreenShot/voice_40.png" alt="语音" width="200px" hspace="10"/>
 
 TODO
 -----
