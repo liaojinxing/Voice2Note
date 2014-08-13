@@ -11,6 +11,12 @@ iTunes地址： https://itunes.apple.com/cn/app/lan-ren-bi-ji-zhi-chi-yu-yin/id8
 <img src="ScreenShot/detail_40.png" alt="笔记" width="200px" hspace="10"/>
 <img src="ScreenShot/voice_40.png" alt="语音" width="200px" hspace="10"/>
 
+Installation
+-----------
+依赖于 CocoaPods，执行以下命令，下载相关依赖：
+
+    /:> pod install
+
 TODO
 -----
 - 当前只支持语音识别，接下来会尝试加入图片输入，通过拍照就可以把身边看到的东西转化为文字（但看起来开源的OCR，效果都不太理想）
