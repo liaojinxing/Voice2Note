@@ -13,10 +13,17 @@
 #import "VNConstants.h"
 #import "NoteListCell.h"
 #import "MobClick.h"
+#import "iflyMSC/IFlyRecognizerView.h"
+#import "iflyMSC/IFlySpeechConstant.h"
+#import "iflyMSC/IFlyRecognizerView.h"
+#import "iflyMSC/IFlySpeechUtility.h"
+#import "SVProgressHUD.h"
 
-@interface NoteListController ()
+@interface NoteListController ()<IFlyRecognizerViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) IFlyRecognizerView *iflyRecognizerView;
+
 
 @end
 
@@ -34,6 +41,13 @@
                                              object:nil];
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+  [super viewWillDisappear:animated];
+  [IFlySpeechUtility destroy];
+}
+
 - (void)dealloc
 {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -41,12 +55,34 @@
 
 - (void)setupNavigationBar
 {
-  UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_add_tab"]
+  UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"micro_small"]
+                                                           style:UIBarButtonItemStylePlain
+                                                          target:self
+                                                          action:@selector(createVoiceTask)];
+  self.navigationItem.leftBarButtonItem = leftItem;
+  
+  UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_add_tab"]
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
                                                                   action:@selector(createTask)];
-  self.navigationItem.rightBarButtonItem = item;
+  self.navigationItem.rightBarButtonItem = rightItem;
   self.navigationItem.title = kAppName;
+}
+
+- (IFlyRecognizerView *)iflyRecognizerView
+{
+  if (!_iflyRecognizerView) {
+    NSString *initString = [NSString stringWithFormat:@"%@=%@", [IFlySpeechConstant APPID], kIFlyAppID];
+    
+    [IFlySpeechUtility createUtility:initString];
+    _iflyRecognizerView = [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
+    _iflyRecognizerView.delegate = self;
+    
+    [_iflyRecognizerView setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+    [_iflyRecognizerView setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+    [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
+  }
+  return _iflyRecognizerView;
 }
 
 - (void)reloadData
@@ -61,6 +97,40 @@
     _dataSource = [[VNNoteManager sharedManager] readAllNotes];
   }
   return _dataSource;
+}
+
+- (void)createVoiceTask
+{
+  [self.iflyRecognizerView start];
+}
+
+#pragma mark IFlyRecognizerViewDelegate
+
+- (void)onResult:(NSArray *)resultArray isLast:(BOOL)isLast
+{
+  NSMutableString *result = [[NSMutableString alloc] init];
+  NSDictionary *dic = [resultArray objectAtIndex:0];
+  for (NSString *key in dic) {
+    [result appendFormat:@"%@", key];
+  }
+  if (isLast && result && result.length > 0) {
+    VNNote *note = [[VNNote alloc] initWithTitle:nil
+                                         content:result
+                                     createdDate:[NSDate date]
+                                      updateDate:[NSDate date]];
+    BOOL success = [note Persistence];
+    if (success) {
+      [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SaveSuccess", @"")];
+      [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationCreateFile object:nil userInfo:nil];
+    } else {
+      [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SaveFail", @"")];
+    }
+  }
+}
+
+- (void)onError:(IFlySpeechError *)error
+{
+  NSLog(@"errorCode:%@", [error errorDesc]);
 }
 
 - (void)createTask

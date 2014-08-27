@@ -40,7 +40,6 @@
 		C7821AEB19499FC1008B952D /* UIColor+VNHex.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AEA19499FC1008B952D /* UIColor+VNHex.m */; };
 		C7821AED1949AB2B008B952D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AEC1949AB2B008B952D /* AppDelegate.m */; };
 		C7821AEF1949B405008B952D /* save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821AEE1949B404008B952D /* save@2x.png */; };
-		C7821AF11949B461008B952D /* micro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821AF01949B461008B952D /* micro@2x.png */; };
 		C79B92851952E6A10071E995 /* micro_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C79B92841952E6A10071E995 /* micro_small@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +104,6 @@
 		C7821AEA19499FC1008B952D /* UIColor+VNHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+VNHex.m"; path = "Source/Common/UIColor+VNHex.m"; sourceTree = "<group>"; };
 		C7821AEC1949AB2B008B952D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C7821AEE1949B404008B952D /* save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save@2x.png"; path = "Resource/save@2x.png"; sourceTree = "<group>"; };
-		C7821AF01949B461008B952D /* micro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "micro@2x.png"; path = "Resource/micro@2x.png"; sourceTree = "<group>"; };
 		C79B92841952E6A10071E995 /* micro_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "micro_small@2x.png"; path = "Resource/micro_small@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				C79B92841952E6A10071E995 /* micro_small@2x.png */,
-				C7821AF01949B461008B952D /* micro@2x.png */,
 				C7821AEE1949B404008B952D /* save@2x.png */,
 				C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */,
 				C7821AD019483FD6008B952D /* ic_more_white@2x.png */,
@@ -406,7 +403,6 @@
 				C79B92851952E6A10071E995 /* micro_small@2x.png in Resources */,
 				C7821ACE19482610008B952D /* Localizable.strings in Resources */,
 				C7821AEF1949B405008B952D /* save@2x.png in Resources */,
-				C7821AF11949B461008B952D /* micro@2x.png in Resources */,
 				C7821AD219483FD6008B952D /* ic_more_white@2x.png in Resources */,
 				C7821ADF19485FC0008B952D /* ic_add_tab@2x.png in Resources */,
 				C7821A9919480417008B952D /* Images.xcassets in Resources */,

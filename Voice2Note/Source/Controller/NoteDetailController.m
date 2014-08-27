@@ -60,7 +60,6 @@ static const CGFloat kVoiceButtonWidth = 100;
   [self initComps];
   [self setupNavigationBar];
   [self setupSpeechRecognizer];
-  [self.view setBackgroundColor:[UIColor colorWithWhite:0.92 alpha:1.0]];
 
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(keyboardWillShow:)
@@ -127,7 +126,6 @@ static const CGFloat kVoiceButtonWidth = 100;
   }
   _titleTextField.textColor = [UIColor systemDarkColor];
   _titleTextField.inputAccessoryView = toolbar;
-  [_titleTextField setBackgroundColor:[UIColor colorWithWhite:0.92 alpha:1.0]];
   [self.view addSubview:_titleTextField];
 
   UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kHorizontalMargin, kViewOriginY + kTextFieldHeight, self.view.frame.size.width - kHorizontalMargin, 1)];
@@ -140,7 +138,6 @@ static const CGFloat kVoiceButtonWidth = 100;
                      self.view.frame.size.width - kHorizontalMargin * 2,
                      self.view.frame.size.height - textY - kVoiceButtonWidth - kVerticalMargin * 2);
   _contentTextView = [[UITextView alloc] initWithFrame:frame];
-  [_contentTextView setBackgroundColor:[UIColor colorWithWhite:0.92 alpha:1.0]];
   _contentTextView.textColor = [UIColor systemDarkColor];
   _contentTextView.font = [UIFont systemFontOfSize:16];
   _contentTextView.autocorrectionType = UITextAutocorrectionTypeNo;
