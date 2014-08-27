@@ -62,7 +62,6 @@
     NSLog(@"Error reading contents of documents directory: %@", [error localizedDescription]);
     return nil;
   }
-  
   // Create Note for each file
   for (NSString *file in files) {
     VNNote *note = [self readNoteWithID:file];
@@ -70,8 +69,12 @@
       [array addObject:note];
     }
   }
-  return array;
+  NSSortDescriptor *sortDescriptor;
+  sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdDate"
+                                               ascending:NO];
+  return [NSMutableArray arrayWithArray:[array sortedArrayUsingDescriptors:@[sortDescriptor]]];
 }
+
 
 - (VNNote *)readNoteWithID:(NSString *)noteID;
 {
