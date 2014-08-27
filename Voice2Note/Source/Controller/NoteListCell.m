@@ -39,7 +39,6 @@ static const CGFloat kMaxTitleHeight = 100;
                               [UIColor colorWithHex:0xe57367],
                               [UIColor colorWithHex:0x0789ba],
                               [UIColor colorWithHex:0x64b043],
-                              [UIColor easterPinkColor],
                               nil];
     _colorArray = [NSArray arrayWithArray:array];
   }
