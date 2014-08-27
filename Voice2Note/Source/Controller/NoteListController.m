@@ -20,10 +20,10 @@
 #import "SVProgressHUD.h"
 
 @interface NoteListController ()<IFlyRecognizerViewDelegate>
-
+{
+  IFlyRecognizerView *_iflyRecognizerView;
+}
 @property (nonatomic, strong) NSMutableArray *dataSource;
-@property (nonatomic, strong) IFlyRecognizerView *iflyRecognizerView;
-
 
 @end
 
@@ -33,6 +33,7 @@
 {
   [super viewDidLoad];
   [self setupNavigationBar];
+  [self setupVoiceRecognizerView];
   self.view.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0];
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [[NSNotificationCenter defaultCenter] addObserver:self
@@ -41,16 +42,10 @@
                                              object:nil];
 }
 
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-  [super viewWillDisappear:animated];
-  [IFlySpeechUtility destroy];
-}
-
 - (void)dealloc
 {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
+  [IFlySpeechUtility destroy];
 }
 
 - (void)setupNavigationBar
@@ -69,20 +64,17 @@
   self.navigationItem.title = kAppName;
 }
 
-- (IFlyRecognizerView *)iflyRecognizerView
+- (void)setupVoiceRecognizerView
 {
-  if (!_iflyRecognizerView) {
-    NSString *initString = [NSString stringWithFormat:@"%@=%@", [IFlySpeechConstant APPID], kIFlyAppID];
-    
-    [IFlySpeechUtility createUtility:initString];
-    _iflyRecognizerView = [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
-    _iflyRecognizerView.delegate = self;
-    
-    [_iflyRecognizerView setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
-    [_iflyRecognizerView setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
-    [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
-  }
-  return _iflyRecognizerView;
+  NSString *initString = [NSString stringWithFormat:@"%@=%@", [IFlySpeechConstant APPID], kIFlyAppID];
+  
+  [IFlySpeechUtility createUtility:initString];
+  _iflyRecognizerView = [[IFlyRecognizerView alloc] initWithCenter:self.view.center];
+  _iflyRecognizerView.delegate = self;
+  
+  [_iflyRecognizerView setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
+  [_iflyRecognizerView setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+  [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
 }
 
 - (void)reloadData
@@ -101,7 +93,7 @@
 
 - (void)createVoiceTask
 {
-  [self.iflyRecognizerView start];
+  [_iflyRecognizerView start];
 }
 
 #pragma mark IFlyRecognizerViewDelegate

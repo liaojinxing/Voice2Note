@@ -164,7 +164,6 @@ static const CGFloat kVoiceButtonWidth = 100;
 - (void)viewWillDisappear:(BOOL)animated
 {
   [super viewWillDisappear:animated];
-  [IFlySpeechUtility destroy];
   [self save];
 }
 
