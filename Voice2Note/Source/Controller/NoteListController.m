@@ -26,8 +26,8 @@
 {
   [super viewDidLoad];
   [self setupNavigationBar];
+  self.view.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0];
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-  
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(reloadData)
                                                name:kNotificationCreateFile
@@ -95,7 +95,7 @@
     cell = [[NoteListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListCell"];
   }
   VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
-  [cell updateWithNote:note];
+  [cell updateWithNote:note index:indexPath.row];
   return cell;
 }
 
