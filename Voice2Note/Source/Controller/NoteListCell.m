@@ -76,7 +76,7 @@ static const CGFloat kMaxTitleHeight = 100;
   return self;
 }
 
-- (void)updateWithNote:(VNNote *)note index:(NSInteger)index
+- (void)updateWithNote:(VNNote *)note
 {
   NSString *string = note.title;
   [_titleLabel setText:note.title];
@@ -98,7 +98,7 @@ static const CGFloat kMaxTitleHeight = 100;
   bgFrame.size.height = [[self class] heightWithNote:note] - kVerticalPadding * 2;
   _backgroundView.frame = bgFrame;
   
-  UIColor *bgColor = [self.colorArray objectAtIndex:index % self.colorArray.count];
+  UIColor *bgColor = [self.colorArray objectAtIndex:note.index % self.colorArray.count];
   [_backgroundView setBackgroundColor:bgColor];
   
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

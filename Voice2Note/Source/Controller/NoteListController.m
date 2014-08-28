@@ -157,7 +157,7 @@
     cell = [[NoteListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListCell"];
   }
   VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
-  [cell updateWithNote:note index:indexPath.row];
+  [cell updateWithNote:note];
   return cell;
 }
 

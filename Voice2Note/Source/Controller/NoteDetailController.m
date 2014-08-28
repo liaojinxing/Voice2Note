@@ -56,7 +56,7 @@ static const CGFloat kVoiceButtonWidth = 100;
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-
+  [self.view setBackgroundColor:[UIColor whiteColor]];
   [self initComps];
   [self setupNavigationBar];
   [self setupSpeechRecognizer];
