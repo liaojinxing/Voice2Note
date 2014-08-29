@@ -109,7 +109,7 @@
     [result appendFormat:@"%@", key];
   }
   [_resultString appendString:result];
-  if (isLast) {
+  if (isLast && _resultString.length > 0) {
     VNNote *note = [[VNNote alloc] initWithTitle:nil
                                          content:_resultString
                                      createdDate:[NSDate date]
