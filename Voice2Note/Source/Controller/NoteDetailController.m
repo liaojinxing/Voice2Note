@@ -293,7 +293,6 @@ static const CGFloat kVoiceButtonWidth = 100;
   _note = note;
   BOOL success = [note Persistence];
   if (success) {
-    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SaveSuccess", @"")];
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationCreateFile object:nil userInfo:nil];
   } else {
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SaveFail", @"")];

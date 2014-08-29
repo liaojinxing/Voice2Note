@@ -22,6 +22,7 @@
 @interface NoteListController ()<IFlyRecognizerViewDelegate>
 {
   IFlyRecognizerView *_iflyRecognizerView;
+  NSMutableString *_resultString;
 }
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
@@ -75,6 +76,8 @@
   [_iflyRecognizerView setParameter:@"iat" forKey:[IFlySpeechConstant IFLY_DOMAIN]];
   [_iflyRecognizerView setParameter:@"asr.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
   [_iflyRecognizerView setParameter:@"plain" forKey:[IFlySpeechConstant RESULT_TYPE]];
+  
+  _resultString = [NSMutableString string];
 }
 
 - (void)reloadData
@@ -105,9 +108,10 @@
   for (NSString *key in dic) {
     [result appendFormat:@"%@", key];
   }
-  if (isLast && result && result.length > 0) {
+  [_resultString appendString:result];
+  if (isLast) {
     VNNote *note = [[VNNote alloc] initWithTitle:nil
-                                         content:result
+                                         content:_resultString
                                      createdDate:[NSDate date]
                                       updateDate:[NSDate date]];
     BOOL success = [note Persistence];
@@ -117,6 +121,7 @@
     } else {
       [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SaveFail", @"")];
     }
+    _resultString = [NSMutableString string];
   }
 }
 
