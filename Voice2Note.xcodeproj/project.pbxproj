@@ -833,6 +833,7 @@
 		C71140171A075E9100E027E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Liao Jinxing (WFC59XXUQC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Liao Jinxing (WFC59XXUQC)";
@@ -853,6 +854,7 @@
 		C71140181A075E9100E027E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
@@ -869,6 +871,7 @@
 		C71140411A076A6C00E027E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -897,6 +900,7 @@
 		C71140421A076A6C00E027E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
@@ -1142,6 +1146,7 @@
 				C71140181A075E9100E027E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C71140401A076A6C00E027E4 /* Build configuration list for PBXNativeTarget "VNNoteManager" */ = {
 			isa = XCConfigurationList;
@@ -1150,6 +1155,7 @@
 				C71140421A076A6C00E027E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C71140441A076A6C00E027E4 /* Build configuration list for PBXNativeTarget "VNNoteManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -1158,6 +1164,7 @@
 				C71140461A076A6C00E027E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7821A7E19480417008B952D /* Build configuration list for PBXProject "Voice2Note" */ = {
 			isa = XCConfigurationList;
