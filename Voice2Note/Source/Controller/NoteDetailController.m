@@ -324,6 +324,8 @@ static const CGFloat kVoiceButtonWidth = 100;
   } else if (buttonIndex == 1) {
     if ([MFMailComposeViewController canSendMail]) {
       [self sendEmail];
+    } else {
+      [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"CanNoteSendMail", @"")];
     }
   } else if (buttonIndex == 2) {
     [self shareToWeixin];
@@ -344,7 +346,7 @@ static const CGFloat kVoiceButtonWidth = 100;
 
 - (void)sendEmail
 {
-  MFMailComposeViewController *composer = [[MFMailComposeViewController alloc]init];
+  MFMailComposeViewController *composer = [[MFMailComposeViewController alloc] init];
   [composer setMailComposeDelegate:self];
   if ([MFMailComposeViewController canSendMail]) {
     [composer setSubject:_titleTextField.text];
@@ -363,7 +365,7 @@ static const CGFloat kVoiceButtonWidth = 100;
   } else if (result == MFMailComposeResultSent) {
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SendEmailSuccess", @"")];
   }
-  [self dismissViewControllerAnimated:YES completion:nil];
+  [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Weixin

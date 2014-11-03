@@ -31,7 +31,7 @@
 
 "SendEmailSuccess" = "邮件发送成功";
 "SendEmailFail" = "邮件发送失败";
-"CanNoteSendMail" = "无法发送邮件，请检查设备或网络情况";
+"CanNoteSendMail" = "无法发送邮件，请检查设备设置";
 
 "VoiceInput" = "语音输入";
 "ImageInputTitle" = "图片输入";

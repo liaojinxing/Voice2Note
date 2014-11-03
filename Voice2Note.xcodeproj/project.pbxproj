@@ -126,8 +126,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4FC9EB7DAA15488F81D9D006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		90D3642E47F94B6EAB1CE461 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF272645A13CF49090BEC7E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C71140091A075E9100E027E4 /* Voice2Note Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Voice2Note Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C711400A1A075E9100E027E4 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		C711400E1A075E9100E027E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,6 +191,7 @@
 		C7821AEC1949AB2B008B952D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C7821AEE1949B404008B952D /* save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save@2x.png"; path = "Resource/save@2x.png"; sourceTree = "<group>"; };
 		C79B92841952E6A10071E995 /* micro_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "micro_small@2x.png"; path = "Resource/micro_small@2x.png"; sourceTree = "<group>"; };
+		D981B20068169477BE575983 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +252,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		622340AC1527F4BB73687B50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D981B20068169477BE575983 /* Pods.debug.xcconfig */,
+				9DF272645A13CF49090BEC7E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C711400C1A075E9100E027E4 /* Voice2Note Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,7 +354,7 @@
 				C71140371A076A6C00E027E4 /* VNNoteManagerTests */,
 				C7821A8519480417008B952D /* Frameworks */,
 				C7821A8419480417008B952D /* Products */,
-				4FC9EB7DAA15488F81D9D006 /* Pods.xcconfig */,
+				622340AC1527F4BB73687B50 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -710,7 +720,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C9D65AD0DAB3492B89BD9410 /* Check Pods Manifest.lock */ = {
@@ -890,6 +900,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1036,7 +1047,7 @@
 		};
 		C7821AB019480417008B952D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FC9EB7DAA15488F81D9D006 /* Pods.xcconfig */;
+			baseConfigurationReference = D981B20068169477BE575983 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1067,7 +1078,7 @@
 		};
 		C7821AB119480417008B952D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FC9EB7DAA15488F81D9D006 /* Pods.xcconfig */;
+			baseConfigurationReference = 9DF272645A13CF49090BEC7E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
