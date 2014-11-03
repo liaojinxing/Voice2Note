@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Voice2Note.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C71140301A076A6C00E027E4"
+               BuildableName = "VNNoteManagerTests.xctest"
+               BlueprintName = "VNNoteManagerTests"
+               ReferencedContainer = "container:Voice2Note.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -35,6 +49,16 @@
                BlueprintIdentifier = "C7821A9D19480417008B952D"
                BuildableName = "Voice2NoteTests.xctest"
                BlueprintName = "Voice2NoteTests"
+               ReferencedContainer = "container:Voice2Note.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C71140301A076A6C00E027E4"
+               BuildableName = "VNNoteManagerTests.xctest"
+               BlueprintName = "VNNoteManagerTests"
                ReferencedContainer = "container:Voice2Note.xcodeproj">
             </BuildableReference>
          </TestableReference>

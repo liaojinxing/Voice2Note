@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define VNNOTE_DEFAULT_TITLE @"无标题笔记"
+
 @interface VNNote : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSString *noteID;

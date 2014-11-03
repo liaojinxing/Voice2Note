@@ -18,4 +18,6 @@
 
 + (UIColor *)systemDarkColor;
 
++ (UIColor *)grayBackgroudColor;
+
 @end

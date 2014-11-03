@@ -7,7 +7,7 @@
 //
 
 #import "NoteListController.h"
-#import "VNNoteManager.h"
+#import "NoteManager.h"
 #import "NoteDetailController.h"
 #import "VNNote.h"
 #import "VNConstants.h"
@@ -18,6 +18,7 @@
 #import "iflyMSC/IFlyRecognizerView.h"
 #import "iflyMSC/IFlySpeechUtility.h"
 #import "SVProgressHUD.h"
+#import "UIColor+VNHex.h"
 
 @interface NoteListController ()<IFlyRecognizerViewDelegate>
 {
@@ -35,7 +36,7 @@
   [super viewDidLoad];
   [self setupNavigationBar];
   [self setupVoiceRecognizerView];
-  self.view.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0];
+  self.view.backgroundColor = [UIColor grayBackgroudColor];
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(reloadData)
@@ -82,14 +83,14 @@
 
 - (void)reloadData
 {
-  _dataSource = [[VNNoteManager sharedManager] readAllNotes];
+  _dataSource = [[NoteManager sharedManager] readAllNotes];
   [self.tableView reloadData];
 }
 
 - (NSMutableArray *)dataSource
 {
   if (!_dataSource) {
-    _dataSource = [[VNNoteManager sharedManager] readAllNotes];
+    _dataSource = [[NoteManager sharedManager] readAllNotes];
   }
   return _dataSource;
 }
@@ -191,7 +192,7 @@
 {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
-    [[VNNoteManager sharedManager] deleteNote:note];
+    [[NoteManager sharedManager] deleteNote:note];
     
     [self.dataSource removeObjectAtIndex:indexPath.row];
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];

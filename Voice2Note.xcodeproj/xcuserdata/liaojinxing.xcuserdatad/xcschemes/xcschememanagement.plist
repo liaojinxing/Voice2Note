@@ -4,14 +4,41 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>VNNoteManager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Voice2Note Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Voice2Note.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C71140081A075E9100E027E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C71140261A076A6C00E027E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C71140301A076A6C00E027E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C7821A8219480417008B952D</key>
 		<dict>
 			<key>primary</key>

@@ -32,6 +32,16 @@
 				<string>wxbe1a37e2f14d870c</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.jinxing.voice2note</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>voice2note</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.1.0</string>

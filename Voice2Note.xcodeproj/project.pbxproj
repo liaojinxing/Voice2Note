@@ -8,6 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		8321E68A15AE491F981EE0DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3642E47F94B6EAB1CE461 /* libPods.a */; };
+		C711400B1A075E9100E027E4 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C711400A1A075E9100E027E4 /* NotificationCenter.framework */; };
+		C71140111A075E9100E027E4 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71140101A075E9100E027E4 /* TodayViewController.m */; };
+		C71140131A075E9100E027E4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71140121A075E9100E027E4 /* MainInterface.storyboard */; };
+		C71140161A075E9100E027E4 /* Voice2Note Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C71140091A075E9100E027E4 /* Voice2Note Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C711401B1A07606500E027E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7821A9819480417008B952D /* Images.xcassets */; };
+		C711401C1A0761A600E027E4 /* micro_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C79B92841952E6A10071E995 /* micro_small@2x.png */; };
+		C711401D1A0761AF00E027E4 /* ic_more_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821AD019483FD6008B952D /* ic_more_white@2x.png */; };
+		C711401E1A0761B700E027E4 /* ic_add_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */; };
+		C711402C1A076A6C00E027E4 /* VNNoteManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C711402B1A076A6C00E027E4 /* VNNoteManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C71140321A076A6C00E027E4 /* VNNoteManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71140271A076A6C00E027E4 /* VNNoteManager.framework */; };
+		C711403B1A076A6C00E027E4 /* VNNoteManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C711403A1A076A6C00E027E4 /* VNNoteManagerTests.m */; };
+		C711403E1A076A6C00E027E4 /* VNNoteManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71140271A076A6C00E027E4 /* VNNoteManager.framework */; };
+		C711403F1A076A6C00E027E4 /* VNNoteManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C71140271A076A6C00E027E4 /* VNNoteManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C711404B1A076AB500E027E4 /* VNNote.h in Headers */ = {isa = PBXBuildFile; fileRef = C71140471A076AB500E027E4 /* VNNote.h */; };
+		C711404C1A076AB500E027E4 /* VNNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C71140481A076AB500E027E4 /* VNNote.m */; };
+		C711404D1A076AB500E027E4 /* NoteManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C71140491A076AB500E027E4 /* NoteManager.h */; };
+		C711404E1A076AB500E027E4 /* NoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C711404A1A076AB500E027E4 /* NoteManager.m */; };
+		C711404F1A076C1800E027E4 /* VNNoteManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C71140271A076A6C00E027E4 /* VNNoteManager.framework */; };
+		C71140541A076EDB00E027E4 /* NSDate+Conversion.h in Headers */ = {isa = PBXBuildFile; fileRef = C71140501A076EDB00E027E4 /* NSDate+Conversion.h */; };
+		C71140551A076EDB00E027E4 /* NSDate+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = C71140511A076EDB00E027E4 /* NSDate+Conversion.m */; };
+		C71140561A076EDB00E027E4 /* VNConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = C71140521A076EDB00E027E4 /* VNConstants.h */; };
+		C71140571A076EDB00E027E4 /* VNConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C71140531A076EDB00E027E4 /* VNConstants.m */; };
 		C73B88501977CEFB007EE3D0 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C73B884D1977CEFB007EE3D0 /* libMobClickLibrary.a */; };
 		C73B88521977CF19007EE3D0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C73B88511977CF19007EE3D0 /* libz.dylib */; };
 		C7470A92196164CB00FD154B /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C7470A91196164CB00FD154B /* AppContext.m */; };
@@ -28,11 +50,8 @@
 		C7821AC419482220008B952D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AC319482220008B952D /* AVFoundation.framework */; };
 		C7821AC61948222B008B952D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AC51948222B008B952D /* SystemConfiguration.framework */; };
 		C7821AC819482235008B952D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AC719482235008B952D /* AudioToolbox.framework */; };
-		C7821ACC19482574008B952D /* VNConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821ACB19482574008B952D /* VNConstants.m */; };
 		C7821ACE19482610008B952D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7821ACD19482610008B952D /* Localizable.strings */; };
 		C7821AD219483FD6008B952D /* ic_more_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821AD019483FD6008B952D /* ic_more_white@2x.png */; };
-		C7821AD7194843B0008B952D /* VNNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AD6194843B0008B952D /* VNNote.m */; };
-		C7821ADA194844C0008B952D /* VNNoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AD9194844C0008B952D /* VNNoteManager.m */; };
 		C7821ADD1948489C008B952D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821ADB1948483F008B952D /* AddressBook.framework */; };
 		C7821ADF19485FC0008B952D /* ic_add_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */; };
 		C7821AE51949910A008B952D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7821AE21949910A008B952D /* libWeChatSDK.a */; };
@@ -44,6 +63,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C71140141A075E9100E027E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7821A7B19480417008B952D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C71140081A075E9100E027E4;
+			remoteInfo = "Voice2Note Widget";
+		};
+		C71140331A076A6C00E027E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7821A7B19480417008B952D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C71140261A076A6C00E027E4;
+			remoteInfo = VNNoteManager;
+		};
+		C71140351A076A6C00E027E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7821A7B19480417008B952D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7821A8219480417008B952D;
+			remoteInfo = Voice2Note;
+		};
+		C711403C1A076A6C00E027E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7821A7B19480417008B952D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C71140261A076A6C00E027E4;
+			remoteInfo = VNNoteManager;
+		};
 		C7821AA319480417008B952D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7821A7B19480417008B952D /* Project object */;
@@ -53,9 +100,54 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C711401A1A075E9100E027E4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C71140161A075E9100E027E4 /* Voice2Note Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C71140431A076A6C00E027E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C711403F1A076A6C00E027E4 /* VNNoteManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4FC9EB7DAA15488F81D9D006 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		90D3642E47F94B6EAB1CE461 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C71140091A075E9100E027E4 /* Voice2Note Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Voice2Note Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C711400A1A075E9100E027E4 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		C711400E1A075E9100E027E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C711400F1A075E9100E027E4 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		C71140101A075E9100E027E4 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		C71140121A075E9100E027E4 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		C71140271A076A6C00E027E4 /* VNNoteManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VNNoteManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C711402A1A076A6C00E027E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C711402B1A076A6C00E027E4 /* VNNoteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VNNoteManager.h; sourceTree = "<group>"; };
+		C71140311A076A6C00E027E4 /* VNNoteManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VNNoteManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C71140391A076A6C00E027E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C711403A1A076A6C00E027E4 /* VNNoteManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VNNoteManagerTests.m; sourceTree = "<group>"; };
+		C71140471A076AB500E027E4 /* VNNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VNNote.h; path = Voice2Note/Source/Model/VNNote.h; sourceTree = SOURCE_ROOT; };
+		C71140481A076AB500E027E4 /* VNNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VNNote.m; path = Voice2Note/Source/Model/VNNote.m; sourceTree = SOURCE_ROOT; };
+		C71140491A076AB500E027E4 /* NoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoteManager.h; path = Voice2Note/Source/Model/NoteManager.h; sourceTree = SOURCE_ROOT; };
+		C711404A1A076AB500E027E4 /* NoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoteManager.m; path = Voice2Note/Source/Model/NoteManager.m; sourceTree = SOURCE_ROOT; };
+		C71140501A076EDB00E027E4 /* NSDate+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Conversion.h"; path = "Voice2Note/Source/Common/NSDate+Conversion.h"; sourceTree = SOURCE_ROOT; };
+		C71140511A076EDB00E027E4 /* NSDate+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Conversion.m"; path = "Voice2Note/Source/Common/NSDate+Conversion.m"; sourceTree = SOURCE_ROOT; };
+		C71140521A076EDB00E027E4 /* VNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VNConstants.h; path = Voice2Note/Source/Common/VNConstants.h; sourceTree = SOURCE_ROOT; };
+		C71140531A076EDB00E027E4 /* VNConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VNConstants.m; path = Voice2Note/Source/Common/VNConstants.m; sourceTree = SOURCE_ROOT; };
 		C73B884D1977CEFB007EE3D0 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		C73B884E1977CEFB007EE3D0 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		C73B884F1977CEFB007EE3D0 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -85,14 +177,8 @@
 		C7821AC319482220008B952D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C7821AC51948222B008B952D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C7821AC719482235008B952D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		C7821ACA19482574008B952D /* VNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VNConstants.h; path = Source/Common/VNConstants.h; sourceTree = "<group>"; };
-		C7821ACB19482574008B952D /* VNConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VNConstants.m; path = Source/Common/VNConstants.m; sourceTree = "<group>"; };
 		C7821ACD19482610008B952D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resource/Localizable.strings; sourceTree = "<group>"; };
 		C7821AD019483FD6008B952D /* ic_more_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_more_white@2x.png"; path = "Resource/ic_more_white@2x.png"; sourceTree = "<group>"; };
-		C7821AD5194843B0008B952D /* VNNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VNNote.h; path = Source/Model/VNNote.h; sourceTree = "<group>"; };
-		C7821AD6194843B0008B952D /* VNNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VNNote.m; path = Source/Model/VNNote.m; sourceTree = "<group>"; };
-		C7821AD8194844C0008B952D /* VNNoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VNNoteManager.h; path = Source/Model/VNNoteManager.h; sourceTree = "<group>"; };
-		C7821AD9194844C0008B952D /* VNNoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VNNoteManager.m; path = Source/Model/VNNoteManager.m; sourceTree = "<group>"; };
 		C7821ADB1948483F008B952D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		C7821ADE19485FC0008B952D /* ic_add_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_add_tab@2x.png"; path = "Resource/ic_add_tab@2x.png"; sourceTree = "<group>"; };
 		C7821AE21949910A008B952D /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -108,11 +194,36 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C71140061A075E9100E027E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C711404F1A076C1800E027E4 /* VNNoteManager.framework in Frameworks */,
+				C711400B1A075E9100E027E4 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C71140231A076A6C00E027E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C711402E1A076A6C00E027E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C71140321A076A6C00E027E4 /* VNNoteManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7821A8019480417008B952D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C73B88521977CF19007EE3D0 /* libz.dylib in Frameworks */,
+				C711403E1A076A6C00E027E4 /* VNNoteManager.framework in Frameworks */,
 				C7821ADD1948489C008B952D /* AddressBook.framework in Frameworks */,
 				C7821AC819482235008B952D /* AudioToolbox.framework in Frameworks */,
 				C7821AC61948222B008B952D /* SystemConfiguration.framework in Frameworks */,
@@ -140,6 +251,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C711400C1A075E9100E027E4 /* Voice2Note Widget */ = {
+			isa = PBXGroup;
+			children = (
+				C711400F1A075E9100E027E4 /* TodayViewController.h */,
+				C71140101A075E9100E027E4 /* TodayViewController.m */,
+				C71140121A075E9100E027E4 /* MainInterface.storyboard */,
+				C711400D1A075E9100E027E4 /* Supporting Files */,
+			);
+			path = "Voice2Note Widget";
+			sourceTree = "<group>";
+		};
+		C711400D1A075E9100E027E4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C711400E1A075E9100E027E4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C71140281A076A6C00E027E4 /* VNNoteManager */ = {
+			isa = PBXGroup;
+			children = (
+				C71140501A076EDB00E027E4 /* NSDate+Conversion.h */,
+				C71140511A076EDB00E027E4 /* NSDate+Conversion.m */,
+				C71140521A076EDB00E027E4 /* VNConstants.h */,
+				C71140531A076EDB00E027E4 /* VNConstants.m */,
+				C71140471A076AB500E027E4 /* VNNote.h */,
+				C71140481A076AB500E027E4 /* VNNote.m */,
+				C71140491A076AB500E027E4 /* NoteManager.h */,
+				C711404A1A076AB500E027E4 /* NoteManager.m */,
+				C711402B1A076A6C00E027E4 /* VNNoteManager.h */,
+				C71140291A076A6C00E027E4 /* Supporting Files */,
+			);
+			path = VNNoteManager;
+			sourceTree = "<group>";
+		};
+		C71140291A076A6C00E027E4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C711402A1A076A6C00E027E4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C71140371A076A6C00E027E4 /* VNNoteManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C711403A1A076A6C00E027E4 /* VNNoteManagerTests.m */,
+				C71140381A076A6C00E027E4 /* Supporting Files */,
+			);
+			path = VNNoteManagerTests;
+			sourceTree = "<group>";
+		};
+		C71140381A076A6C00E027E4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C71140391A076A6C00E027E4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C73B884C1977CEFB007EE3D0 /* Umeng */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +339,9 @@
 			children = (
 				C7821A8C19480417008B952D /* Voice2Note */,
 				C7821AA519480417008B952D /* Voice2NoteTests */,
+				C711400C1A075E9100E027E4 /* Voice2Note Widget */,
+				C71140281A076A6C00E027E4 /* VNNoteManager */,
+				C71140371A076A6C00E027E4 /* VNNoteManagerTests */,
 				C7821A8519480417008B952D /* Frameworks */,
 				C7821A8419480417008B952D /* Products */,
 				4FC9EB7DAA15488F81D9D006 /* Pods.xcconfig */,
@@ -178,6 +353,9 @@
 			children = (
 				C7821A8319480417008B952D /* Voice2Note.app */,
 				C7821A9E19480417008B952D /* Voice2NoteTests.xctest */,
+				C71140091A075E9100E027E4 /* Voice2Note Widget.appex */,
+				C71140271A076A6C00E027E4 /* VNNoteManager.framework */,
+				C71140311A076A6C00E027E4 /* VNNoteManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,6 +374,7 @@
 				C7821A8A19480417008B952D /* UIKit.framework */,
 				C7821A9F19480417008B952D /* XCTest.framework */,
 				90D3642E47F94B6EAB1CE461 /* libPods.a */,
+				C711400A1A075E9100E027E4 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,7 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				C7470A93196164D400FD154B /* App */,
-				C7821AD41948437E008B952D /* Model */,
 				C7821AC919482557008B952D /* Common */,
 				C7821AB719480434008B952D /* Controller */,
 			);
@@ -280,23 +458,10 @@
 		C7821AC919482557008B952D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C7821ACA19482574008B952D /* VNConstants.h */,
-				C7821ACB19482574008B952D /* VNConstants.m */,
 				C7821AE919499FC1008B952D /* UIColor+VNHex.h */,
 				C7821AEA19499FC1008B952D /* UIColor+VNHex.m */,
 			);
 			name = Common;
-			sourceTree = "<group>";
-		};
-		C7821AD41948437E008B952D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C7821AD5194843B0008B952D /* VNNote.h */,
-				C7821AD6194843B0008B952D /* VNNote.m */,
-				C7821AD8194844C0008B952D /* VNNoteManager.h */,
-				C7821AD9194844C0008B952D /* VNNoteManager.m */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		C7821AE0194990F7008B952D /* Library */ = {
@@ -321,7 +486,76 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C71140241A076A6C00E027E4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C711404D1A076AB500E027E4 /* NoteManager.h in Headers */,
+				C71140541A076EDB00E027E4 /* NSDate+Conversion.h in Headers */,
+				C711404B1A076AB500E027E4 /* VNNote.h in Headers */,
+				C711402C1A076A6C00E027E4 /* VNNoteManager.h in Headers */,
+				C71140561A076EDB00E027E4 /* VNConstants.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		C71140081A075E9100E027E4 /* Voice2Note Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C71140191A075E9100E027E4 /* Build configuration list for PBXNativeTarget "Voice2Note Widget" */;
+			buildPhases = (
+				C71140051A075E9100E027E4 /* Sources */,
+				C71140061A075E9100E027E4 /* Frameworks */,
+				C71140071A075E9100E027E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Voice2Note Widget";
+			productName = "Voice2Note Widget";
+			productReference = C71140091A075E9100E027E4 /* Voice2Note Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		C71140261A076A6C00E027E4 /* VNNoteManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C71140401A076A6C00E027E4 /* Build configuration list for PBXNativeTarget "VNNoteManager" */;
+			buildPhases = (
+				C71140221A076A6C00E027E4 /* Sources */,
+				C71140231A076A6C00E027E4 /* Frameworks */,
+				C71140241A076A6C00E027E4 /* Headers */,
+				C71140251A076A6C00E027E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VNNoteManager;
+			productName = VNNoteManager;
+			productReference = C71140271A076A6C00E027E4 /* VNNoteManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C71140301A076A6C00E027E4 /* VNNoteManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C71140441A076A6C00E027E4 /* Build configuration list for PBXNativeTarget "VNNoteManagerTests" */;
+			buildPhases = (
+				C711402D1A076A6C00E027E4 /* Sources */,
+				C711402E1A076A6C00E027E4 /* Frameworks */,
+				C711402F1A076A6C00E027E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C71140341A076A6C00E027E4 /* PBXTargetDependency */,
+				C71140361A076A6C00E027E4 /* PBXTargetDependency */,
+			);
+			name = VNNoteManagerTests;
+			productName = VNNoteManagerTests;
+			productReference = C71140311A076A6C00E027E4 /* VNNoteManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C7821A8219480417008B952D /* Voice2Note */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7821AAF19480417008B952D /* Build configuration list for PBXNativeTarget "Voice2Note" */;
@@ -331,10 +565,14 @@
 				C7821A8019480417008B952D /* Frameworks */,
 				C7821A8119480417008B952D /* Resources */,
 				B9858D9A4CF34E51A3BCF45C /* Copy Pods Resources */,
+				C711401A1A075E9100E027E4 /* Embed App Extensions */,
+				C71140431A076A6C00E027E4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C71140151A075E9100E027E4 /* PBXTargetDependency */,
+				C711403D1A076A6C00E027E4 /* PBXTargetDependency */,
 			);
 			name = Voice2Note;
 			productName = Voice2Note;
@@ -365,9 +603,20 @@
 		C7821A7B19480417008B952D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = jinxing;
 				TargetAttributes = {
+					C71140081A075E9100E027E4 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 8CMA73KN4U;
+					};
+					C71140261A076A6C00E027E4 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					C71140301A076A6C00E027E4 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = C7821A8219480417008B952D;
+					};
 					C7821A8219480417008B952D = {
 						DevelopmentTeam = 8CMA73KN4U;
 					};
@@ -390,11 +639,40 @@
 			targets = (
 				C7821A8219480417008B952D /* Voice2Note */,
 				C7821A9D19480417008B952D /* Voice2NoteTests */,
+				C71140081A075E9100E027E4 /* Voice2Note Widget */,
+				C71140261A076A6C00E027E4 /* VNNoteManager */,
+				C71140301A076A6C00E027E4 /* VNNoteManagerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C71140071A075E9100E027E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C711401C1A0761A600E027E4 /* micro_small@2x.png in Resources */,
+				C711401E1A0761B700E027E4 /* ic_add_tab@2x.png in Resources */,
+				C71140131A075E9100E027E4 /* MainInterface.storyboard in Resources */,
+				C711401B1A07606500E027E4 /* Images.xcassets in Resources */,
+				C711401D1A0761AF00E027E4 /* ic_more_white@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C71140251A076A6C00E027E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C711402F1A076A6C00E027E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7821A8119480417008B952D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,6 +731,33 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C71140051A075E9100E027E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C71140111A075E9100E027E4 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C71140221A076A6C00E027E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C71140551A076EDB00E027E4 /* NSDate+Conversion.m in Sources */,
+				C71140571A076EDB00E027E4 /* VNConstants.m in Sources */,
+				C711404C1A076AB500E027E4 /* VNNote.m in Sources */,
+				C711404E1A076AB500E027E4 /* NoteManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C711402D1A076A6C00E027E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C711403B1A076A6C00E027E4 /* VNNoteManagerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7821A7F19480417008B952D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -463,10 +768,7 @@
 				C7821A9319480417008B952D /* main.m in Sources */,
 				C7821AEB19499FC1008B952D /* UIColor+VNHex.m in Sources */,
 				C7821AC0194804B6008B952D /* NoteDetailController.m in Sources */,
-				C7821ACC19482574008B952D /* VNConstants.m in Sources */,
 				C7470A92196164CB00FD154B /* AppContext.m in Sources */,
-				C7821AD7194843B0008B952D /* VNNote.m in Sources */,
-				C7821ADA194844C0008B952D /* VNNoteManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +783,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C71140151A075E9100E027E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C71140081A075E9100E027E4 /* Voice2Note Widget */;
+			targetProxy = C71140141A075E9100E027E4 /* PBXContainerItemProxy */;
+		};
+		C71140341A076A6C00E027E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C71140261A076A6C00E027E4 /* VNNoteManager */;
+			targetProxy = C71140331A076A6C00E027E4 /* PBXContainerItemProxy */;
+		};
+		C71140361A076A6C00E027E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7821A8219480417008B952D /* Voice2Note */;
+			targetProxy = C71140351A076A6C00E027E4 /* PBXContainerItemProxy */;
+		};
+		C711403D1A076A6C00E027E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C71140261A076A6C00E027E4 /* VNNoteManager */;
+			targetProxy = C711403C1A076A6C00E027E4 /* PBXContainerItemProxy */;
+		};
 		C7821AA419480417008B952D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C7821A8219480417008B952D /* Voice2Note */;
@@ -508,6 +830,134 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C71140171A075E9100E027E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liao Jinxing (WFC59XXUQC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Liao Jinxing (WFC59XXUQC)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Voice2Note Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C71140181A075E9100E027E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Voice2Note Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C71140411A076A6C00E027E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VNNoteManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C71140421A076A6C00E027E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = VNNoteManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C71140451A076A6C00E027E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VNNoteManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voice2Note.app/Voice2Note";
+			};
+			name = Debug;
+		};
+		C71140461A076A6C00E027E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VNNoteManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Voice2Note.app/Voice2Note";
+			};
+			name = Release;
+		};
 		C7821AAD19480417008B952D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -597,7 +1047,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
 				INFOPLIST_FILE = "Voice2Note/Voice2Note-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/Weixin",
@@ -627,7 +1078,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Voice2Note/Voice2Note-Prefix.pch";
 				INFOPLIST_FILE = "Voice2Note/Voice2Note-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework/Weixin",
@@ -683,6 +1135,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C71140191A075E9100E027E4 /* Build configuration list for PBXNativeTarget "Voice2Note Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C71140171A075E9100E027E4 /* Debug */,
+				C71140181A075E9100E027E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C71140401A076A6C00E027E4 /* Build configuration list for PBXNativeTarget "VNNoteManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C71140411A076A6C00E027E4 /* Debug */,
+				C71140421A076A6C00E027E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C71140441A076A6C00E027E4 /* Build configuration list for PBXNativeTarget "VNNoteManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C71140451A076A6C00E027E4 /* Debug */,
+				C71140461A076A6C00E027E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C7821A7E19480417008B952D /* Build configuration list for PBXProject "Voice2Note" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

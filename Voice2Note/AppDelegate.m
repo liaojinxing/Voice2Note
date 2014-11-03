@@ -12,7 +12,7 @@
 #import "WXApi.h"
 #import "Colours.h"
 #import "VNNote.h"
-#import "VNNoteManager.h"
+#import "NoteManager.h"
 #import "UIColor+VNHex.h"
 #import "MobClick.h"
 
@@ -85,7 +85,7 @@
                                          content:NSLocalizedString(@"AboutText", @"")
                                      createdDate:[NSDate date]
                                       updateDate:[NSDate date]];
-    [[VNNoteManager sharedManager] storeNote:note];
+    [[NoteManager sharedManager] storeNote:note];
     [userDefaults setBool:YES forKey:@"hasInitFile"];
     [userDefaults synchronize];
   }

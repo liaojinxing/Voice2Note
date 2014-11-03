@@ -6,6 +6,8 @@
 //  Copyright (c) 2014年 jinxing. All rights reserved.
 //
 
+#import "VNConstants.h"
+
 NSString *const kIFlyAppID = @"5396d66c";
 NSString *const kWeixinAppID = @"wxbe1a37e2f14d870c";
 NSString *const kAppName = @"懒人笔记";

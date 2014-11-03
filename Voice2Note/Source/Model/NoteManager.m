@@ -6,12 +6,12 @@
 //  Copyright (c) 2014年 jinxing. All rights reserved.
 //
 
-#import "VNNoteManager.h"
+#import "NoteManager.h"
 #import "VNConstants.h"
 #import "VNNote.h"
-#import "SVProgressHUD.h"
+#import "NSDate+Conversion.h"
 
-@implementation VNNoteManager
+@implementation NoteManager
 
 + (instancetype)sharedManager
 {
@@ -99,6 +99,17 @@
 {
   NSString *filePath = [_docPath stringByAppendingPathComponent:note.noteID];
   [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+}
+
+- (VNNote *)todayNote
+{
+  NSMutableArray *notes = [self readAllNotes];
+  for (VNNote *note in notes) {
+    if ([NSDate isSameDay:note.createdDate andDate:[NSDate date]]) {
+      return note;
+    }
+  }
+  return nil;
 }
 
 @end

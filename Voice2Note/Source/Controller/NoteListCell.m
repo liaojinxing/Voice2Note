@@ -49,8 +49,8 @@ static const CGFloat kMaxTitleHeight = 100;
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
-    self.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0];
-    self.contentView.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0];
+    self.backgroundColor = [UIColor grayBackgroudColor];
+    self.contentView.backgroundColor = [UIColor grayBackgroudColor];
     _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(kCellHorizontalMargin,
                                                                kVerticalPadding,
                                                                self.frame.size.width - kCellHorizontalMargin * 2,

@@ -7,7 +7,7 @@
 //
 
 #import "VNNote.h"
-#import "VNNoteManager.h"
+#import "NoteManager.h"
 
 #define kNoteIDKey      @"NoteID"
 #define kTitleKey       @"Title"
@@ -35,12 +35,7 @@
     _createdDate = createdDate;
     _updatedDate = updatedDate;
     if (_title == nil || _title.length == 0) {
-      /*
-      NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-      [formatter setDateFormat:@"yyMMdd-HH:mm:ss"];
-      _title = [formatter stringFromDate:_createdDate];
-       */
-      _title = @"无标题笔记";
+      _title = VNNOTE_DEFAULT_TITLE;
     }
     if (_content == nil || _content.length == 0) {
       _content = @"";
@@ -69,7 +64,7 @@
 
 - (BOOL)Persistence
 {
-  return [[VNNoteManager sharedManager] storeNote:self];
+  return [[NoteManager sharedManager] storeNote:self];
 }
 
 - (NSInteger)index

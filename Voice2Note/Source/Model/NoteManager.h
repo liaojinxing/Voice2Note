@@ -9,7 +9,7 @@
 @import Foundation;
 
 @class VNNote;
-@interface VNNoteManager : NSObject
+@interface NoteManager : NSObject
 
 @property (nonatomic, strong) NSString *docPath;
 
@@ -18,6 +18,8 @@
 - (VNNote *)readNoteWithID:(NSString *)noteID;
 - (BOOL)storeNote:(VNNote *)note;
 - (void)deleteNote:(VNNote *)note;
+
+- (VNNote *)todayNote;
 
 + (instancetype)sharedManager;
 
