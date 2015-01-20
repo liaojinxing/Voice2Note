@@ -61,7 +61,7 @@ static const CGFloat kMaxTitleHeight = 100;
     self.contentView.backgroundColor = [UIColor systemColor];
     _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(kCellHorizontalMargin,
                                                                kVerticalPadding,
-                                                               self.frame.size.width - kCellHorizontalMargin * 2,
+                                                               [UIScreen mainScreen].bounds.size.width - kCellHorizontalMargin * 2,
                                                                0)];
     _backgroundView.layer.cornerRadius = 0.0f;
     _backgroundView.layer.masksToBounds = YES;

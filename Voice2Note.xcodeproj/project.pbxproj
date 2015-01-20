@@ -60,6 +60,7 @@
 		C7821AED1949AB2B008B952D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7821AEC1949AB2B008B952D /* AppDelegate.m */; };
 		C7821AEF1949B405008B952D /* save@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7821AEE1949B404008B952D /* save@2x.png */; };
 		C79B92851952E6A10071E995 /* micro_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C79B92841952E6A10071E995 /* micro_small@2x.png */; };
+		C7B282821A6E30F30072FAD3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7B282811A6E30F30072FAD3 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		C7821AEC1949AB2B008B952D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C7821AEE1949B404008B952D /* save@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "save@2x.png"; path = "Resource/save@2x.png"; sourceTree = "<group>"; };
 		C79B92841952E6A10071E995 /* micro_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "micro_small@2x.png"; path = "Resource/micro_small@2x.png"; sourceTree = "<group>"; };
+		C7B282811A6E30F30072FAD3 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Source/LaunchScreen.xib; sourceTree = "<group>"; };
 		D981B20068169477BE575983 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -340,6 +342,7 @@
 				C7470A91196164CB00FD154B /* AppContext.m */,
 				C7821A9519480417008B952D /* AppDelegate.h */,
 				C7821AEC1949AB2B008B952D /* AppDelegate.m */,
+				C7B282811A6E30F30072FAD3 /* LaunchScreen.xib */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				C79B92851952E6A10071E995 /* micro_small@2x.png in Resources */,
 				C7821ACE19482610008B952D /* Localizable.strings in Resources */,
 				C7821AEF1949B405008B952D /* save@2x.png in Resources */,
+				C7B282821A6E30F30072FAD3 /* LaunchScreen.xib in Resources */,
 				C7821AD219483FD6008B952D /* ic_more_white@2x.png in Resources */,
 				C7821ADF19485FC0008B952D /* ic_add_tab@2x.png in Resources */,
 				C7821A9919480417008B952D /* Images.xcassets in Resources */,
@@ -1054,7 +1058,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Liao Jinxing (WFC59XXUQC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Liao Jinxing (WFC59XXUQC)";
@@ -1085,7 +1088,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liao Jinxing (8CMA73KN4U)";
