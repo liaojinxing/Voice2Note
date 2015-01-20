@@ -11,6 +11,8 @@
 
 @interface NoteListCell : UITableViewCell
 
+@property (nonatomic, assign) NSInteger index;
+
 + (CGFloat)heightWithNote:(VNNote *)note;
 - (void)updateWithNote:(VNNote *)note;
 

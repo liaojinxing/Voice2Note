@@ -11,9 +11,9 @@
 #import "VNConstants.h"
 #import "Colours.h"
 
-static const CGFloat kCellHorizontalMargin = 4;
+static const CGFloat kCellHorizontalMargin = 0;
 static const CGFloat kCellPadding = 8;
-static const CGFloat kVerticalPadding = 4;
+static const CGFloat kVerticalPadding = 0;
 static const CGFloat kLabelHeight = 15;
 
 static const CGFloat kMaxTitleHeight = 100;
@@ -35,10 +35,18 @@ static const CGFloat kMaxTitleHeight = 100;
 {
   if (!_colorArray) {
     NSMutableArray  * array= [NSMutableArray arrayWithObjects:
-                              [UIColor colorWithHex:0xb28850],
-                              [UIColor colorWithHex:0xe57367],
-                              [UIColor colorWithHex:0x0789ba],
-                              [UIColor colorWithHex:0x64b043],
+                              [UIColor colorWithHex:0x017071],
+                              [UIColor colorWithHex:0x018071],
+                              [UIColor colorWithHex:0x019073],
+                              [UIColor colorWithHex:0x01A075],
+                              [UIColor colorWithHex:0x01B075],
+                              [UIColor colorWithHex:0x01C075],
+                              [UIColor colorWithHex:0x01B075],
+                              [UIColor colorWithHex:0x01A075],
+                              [UIColor colorWithHex:0x019075],
+                              [UIColor colorWithHex:0x018075],
+                              [UIColor colorWithHex:0x017075],
+                              [UIColor colorWithHex:0x016071],
                               nil];
     _colorArray = [NSArray arrayWithArray:array];
   }
@@ -49,13 +57,13 @@ static const CGFloat kMaxTitleHeight = 100;
 {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
-    self.backgroundColor = [UIColor grayBackgroudColor];
-    self.contentView.backgroundColor = [UIColor grayBackgroudColor];
+    self.backgroundColor = [UIColor systemColor];
+    self.contentView.backgroundColor = [UIColor systemColor];
     _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(kCellHorizontalMargin,
                                                                kVerticalPadding,
                                                                self.frame.size.width - kCellHorizontalMargin * 2,
                                                                0)];
-    _backgroundView.layer.cornerRadius = 4.0f;
+    _backgroundView.layer.cornerRadius = 0.0f;
     _backgroundView.layer.masksToBounds = YES;
     [self.contentView addSubview:_backgroundView];
     
@@ -98,7 +106,7 @@ static const CGFloat kMaxTitleHeight = 100;
   bgFrame.size.height = [[self class] heightWithNote:note] - kVerticalPadding * 2;
   _backgroundView.frame = bgFrame;
   
-  UIColor *bgColor = [self.colorArray objectAtIndex:note.index % self.colorArray.count];
+  UIColor *bgColor = [self.colorArray objectAtIndex:self.index % self.colorArray.count];
   [_backgroundView setBackgroundColor:bgColor];
   
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

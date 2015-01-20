@@ -35,7 +35,7 @@
 
 + (UIColor *)grayBackgroudColor
 {
-    return [UIColor colorWithWhite:0.5 alpha:1.0];
+    return [UIColor colorWithWhite:1.0 alpha:1.0];
 }
 
 

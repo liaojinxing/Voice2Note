@@ -36,7 +36,7 @@
   [super viewDidLoad];
   [self setupNavigationBar];
   [self setupVoiceRecognizerView];
-  self.view.backgroundColor = [UIColor grayBackgroudColor];
+  self.view.backgroundColor = [UIColor systemColor];
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(reloadData)
@@ -163,6 +163,7 @@
     cell = [[NoteListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ListCell"];
   }
   VNNote *note = [self.dataSource objectAtIndex:indexPath.row];
+  cell.index = indexPath.row;
   [cell updateWithNote:note];
   return cell;
 }
