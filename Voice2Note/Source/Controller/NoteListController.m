@@ -36,8 +36,9 @@
   [super viewDidLoad];
   [self setupNavigationBar];
   [self setupVoiceRecognizerView];
-  self.view.backgroundColor = [UIColor systemColor];
-  self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  self.view.backgroundColor = [UIColor whiteColor];
+  self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+  self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(reloadData)
                                                name:kNotificationCreateFile

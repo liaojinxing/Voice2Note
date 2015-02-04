@@ -31,7 +31,6 @@ static const CGFloat kVoiceButtonWidth = 100;
                                     MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 {
   VNNote *_note;
-  UITextField *_titleTextField;
   UITextView *_contentTextView;
 
   UIButton *_voiceButton;
@@ -118,25 +117,10 @@ static const CGFloat kVoiceButtonWidth = 100;
   toolbar.tintColor = [UIColor systemColor];
   toolbar.items = [NSArray arrayWithObjects:doneBarButton, voiceBarButton, nil];
 
-  _titleTextField = [[UITextField alloc] initWithFrame:frame];
-  if (_note) {
-    _titleTextField.text = _note.title;
-  } else {
-    _titleTextField.placeholder = NSLocalizedString(@"InputViewTitle", @"");
-  }
-  _titleTextField.textColor = [UIColor systemDarkColor];
-  _titleTextField.inputAccessoryView = toolbar;
-  [self.view addSubview:_titleTextField];
-
-  UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kHorizontalMargin, kViewOriginY + kTextFieldHeight, self.view.frame.size.width - kHorizontalMargin, 1)];
-  lineView.backgroundColor = [UIColor systemDarkColor];
-  [self.view addSubview:lineView];
-
-  CGFloat textY = kViewOriginY + kTextFieldHeight + kVerticalMargin;
   frame = CGRectMake(kHorizontalMargin,
-                     textY,
+                     0,
                      self.view.frame.size.width - kHorizontalMargin * 2,
-                     self.view.frame.size.height - textY - kVoiceButtonWidth - kVerticalMargin * 2);
+                     self.view.frame.size.height - kVoiceButtonWidth - kVerticalMargin * 2);
   _contentTextView = [[UITextView alloc] initWithFrame:frame];
   _contentTextView.textColor = [UIColor systemDarkColor];
   _contentTextView.font = [UIFont systemFontOfSize:16];
@@ -214,11 +198,7 @@ static const CGFloat kVoiceButtonWidth = 100;
   for (NSString *key in dic) {
     [result appendFormat:@"%@", key];
   }
-  if (_isEditingTitle) {
-    _titleTextField.text = [NSString stringWithFormat:@"%@%@", _titleTextField.text, result];
-  } else {
-    _contentTextView.text = [NSString stringWithFormat:@"%@%@", _contentTextView.text, result];
-  }
+  _contentTextView.text = [NSString stringWithFormat:@"%@%@", _contentTextView.text, result];
 }
 
 - (void)onError:(IFlySpeechError *)error
@@ -261,10 +241,6 @@ static const CGFloat kVoiceButtonWidth = 100;
 
 - (void)hideKeyboard
 {
-  if ([_titleTextField isFirstResponder]) {
-    _isEditingTitle = YES;
-    [_titleTextField resignFirstResponder];
-  }
   if ([_contentTextView isFirstResponder]) {
     _isEditingTitle = NO;
     [_contentTextView resignFirstResponder];
@@ -276,8 +252,7 @@ static const CGFloat kVoiceButtonWidth = 100;
 - (void)save
 {
   [self hideKeyboard];
-  if ((_contentTextView.text == nil || _contentTextView.text.length == 0) &&
-      (_titleTextField.text == nil || _titleTextField.text.length == 0)) {
+  if ((_contentTextView.text == nil || _contentTextView.text.length == 0)) {
     return;
   }
   NSDate *createDate;
@@ -286,7 +261,7 @@ static const CGFloat kVoiceButtonWidth = 100;
   } else {
     createDate = [NSDate date];
   }
-  VNNote *note = [[VNNote alloc] initWithTitle:_titleTextField.text
+  VNNote *note = [[VNNote alloc] initWithTitle:nil
                                        content:_contentTextView.text
                                    createdDate:createDate
                                     updateDate:[NSDate date]];
@@ -332,16 +307,6 @@ static const CGFloat kVoiceButtonWidth = 100;
   }
 }
 
-- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
-{
-  for (UIView *subview in actionSheet.subviews) {
-    if ([subview isKindOfClass:[UIButton class]]) {
-      UIButton *button = (UIButton *)subview;
-      [button setTitleColor:[UIColor systemColor] forState:UIControlStateNormal];
-    }
-  }
-}
-
 #pragma mark - Eail
 
 - (void)sendEmail
@@ -349,7 +314,7 @@ static const CGFloat kVoiceButtonWidth = 100;
   MFMailComposeViewController *composer = [[MFMailComposeViewController alloc] init];
   [composer setMailComposeDelegate:self];
   if ([MFMailComposeViewController canSendMail]) {
-    [composer setSubject:_titleTextField.text];
+    [composer setSubject:@"来自懒人笔记的一封信"];
     [composer setMessageBody:_contentTextView.text isHTML:NO];
     [composer setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:composer animated:YES completion:nil];

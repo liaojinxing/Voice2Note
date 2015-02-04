@@ -12,7 +12,7 @@
 #import "Colours.h"
 
 static const CGFloat kCellHorizontalMargin = 0;
-static const CGFloat kCellPadding = 8;
+static const CGFloat kCellPadding = 15;
 static const CGFloat kVerticalPadding = 0;
 static const CGFloat kLabelHeight = 15;
 
@@ -25,33 +25,9 @@ static const CGFloat kMaxTitleHeight = 100;
   UILabel *_timeLabel;
 }
 
-@property (nonatomic, strong) NSArray *colorArray;
-
 @end
 
 @implementation NoteListCell
-
-- (NSArray *)colorArray
-{
-  if (!_colorArray) {
-    NSMutableArray  * array= [NSMutableArray arrayWithObjects:
-                              [UIColor colorWithHex:0x017071],
-                              [UIColor colorWithHex:0x018071],
-                              [UIColor colorWithHex:0x019073],
-                              [UIColor colorWithHex:0x01A075],
-                              [UIColor colorWithHex:0x01B075],
-                              [UIColor colorWithHex:0x01C075],
-                              [UIColor colorWithHex:0x01B075],
-                              [UIColor colorWithHex:0x01A075],
-                              [UIColor colorWithHex:0x019075],
-                              [UIColor colorWithHex:0x018075],
-                              [UIColor colorWithHex:0x017075],
-                              [UIColor colorWithHex:0x016071],
-                              nil];
-    _colorArray = [NSArray arrayWithArray:array];
-  }
-  return _colorArray;
-}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -65,16 +41,17 @@ static const CGFloat kMaxTitleHeight = 100;
                                                                0)];
     _backgroundView.layer.cornerRadius = 0.0f;
     _backgroundView.layer.masksToBounds = YES;
+    [_backgroundView setBackgroundColor:[UIColor grayBackgroudColor]];
     [self.contentView addSubview:_backgroundView];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kCellPadding, kCellPadding, _backgroundView.frame.size.width - kCellPadding * 2, 0)];
-    [_titleLabel setTextColor:[UIColor whiteColor]];
+    [_titleLabel setTextColor:[UIColor charcoalColor]];
     [_titleLabel setFont:[UIFont boldSystemFontOfSize:17]];
     [_titleLabel setNumberOfLines:0];
     [_backgroundView addSubview:_titleLabel];
     
     _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(kCellPadding, kCellPadding, _backgroundView.frame.size.width - kCellPadding * 2, kLabelHeight)];
-    [_timeLabel setTextColor:[UIColor whiteColor]];
+    [_timeLabel setTextColor:[UIColor charcoalColor]];
     [_timeLabel setFont:[UIFont systemFontOfSize:10]];
     [_timeLabel setTextAlignment:NSTextAlignmentRight];
     [_backgroundView addSubview:_timeLabel];
@@ -105,10 +82,7 @@ static const CGFloat kMaxTitleHeight = 100;
   CGRect bgFrame = _backgroundView.frame;
   bgFrame.size.height = [[self class] heightWithNote:note] - kVerticalPadding * 2;
   _backgroundView.frame = bgFrame;
-  
-  UIColor *bgColor = [self.colorArray objectAtIndex:self.index % self.colorArray.count];
-  [_backgroundView setBackgroundColor:bgColor];
-  
+
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
   [_timeLabel setText:[formatter stringFromDate:note.createdDate]];
