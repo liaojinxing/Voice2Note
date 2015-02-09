@@ -81,7 +81,7 @@
 {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   if (![userDefaults objectForKey:@"hasInitFile"]) {
-    VNNote *note = [[VNNote alloc] initWithTitle:NSLocalizedString(@"AboutTitle", @"")
+    VNNote *note = [[VNNote alloc] initWithTitle:nil
                                          content:NSLocalizedString(@"AboutText", @"")
                                      createdDate:[NSDate date]
                                       updateDate:[NSDate date]];
