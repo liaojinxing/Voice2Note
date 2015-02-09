@@ -16,7 +16,7 @@ static const CGFloat kCellPadding = 15;
 static const CGFloat kVerticalPadding = 0;
 static const CGFloat kLabelHeight = 15;
 
-static const CGFloat kMaxTitleHeight = 100;
+static const CGFloat kMaxTitleHeight = 180;
 
 @interface NoteListCell ()
 {
