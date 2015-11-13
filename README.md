@@ -18,3 +18,33 @@ Installation
 
     /:> pod install
 
+Other useful library
+-------------
+个人其他开源项目:
+
+- 自动轮播banner:[LJAutoScrollView]
+
+- Swift实现的v2ex客户端:[V2EXClient]
+
+- Swift语法分享PPT:[SwiftSharing]
+
+- iOS \& web混合开发框架:[HybridBridge]
+
+- 五星打分组件:[StarRatingView]
+
+- 正则定义样式的UILabel:[RichStyleLabel]
+
+- 常用图片处理category:[EasyImage]
+
+- iOS AutoLayout科普及demo:[AutoLayout]
+
+[LJAutoScrollView]:https://github.com/liaojinxing/LJAutoScrollView
+[V2EXClient]:https://github.com/liaojinxing/V2EXClient
+[SwiftSharing]:https://github.com/liaojinxing/SwiftSharing
+[StarRatingView]:https://github.com/liaojinxing/StarRatingView
+[HybridBridge]:https://github.com/liaojinxing/HybridBridge
+[RichStyleLabel]:https://github.com/liaojinxing/RichStyleLabel
+[EasyImage]:https://github.com/liaojinxing/EasyImage
+[AutoLayout]:https://github.com/liaojinxing/Autolayout
+[Voice2Note]:https://github.com/liaojinxing/Voice2Note
+
