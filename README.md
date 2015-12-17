@@ -22,6 +22,8 @@ Other useful library
 -------------
 个人其他开源项目:
 
+- 支持任意类型的URL router:[LJURLRouter]
+
 - 自动轮播banner:[LJAutoScrollView]
 
 - Swift实现的v2ex客户端:[V2EXClient]
@@ -46,5 +48,5 @@ Other useful library
 [RichStyleLabel]:https://github.com/liaojinxing/RichStyleLabel
 [EasyImage]:https://github.com/liaojinxing/EasyImage
 [AutoLayout]:https://github.com/liaojinxing/Autolayout
+[LJURLRouter]:https://github.com/liaojinxing/LJURLRouter
 [Voice2Note]:https://github.com/liaojinxing/Voice2Note
-
