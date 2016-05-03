@@ -40,6 +40,13 @@ Other useful library
 
 - iOS AutoLayout科普及demo:[AutoLayout]
 
+订阅文章
+--------
+
+欢迎关注[简书], 关注微信公众号(iOSers)，订阅高质量原创技术文章：
+
+<img src="http://upload-images.jianshu.io/upload_images/1859836-2f44998e2341e34d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="公众号" width="300px" hspace="10"/>
+
 [LJAutoScrollView]:https://github.com/liaojinxing/LJAutoScrollView
 [V2EXClient]:https://github.com/liaojinxing/V2EXClient
 [SwiftSharing]:https://github.com/liaojinxing/SwiftSharing
@@ -50,3 +57,4 @@ Other useful library
 [AutoLayout]:https://github.com/liaojinxing/Autolayout
 [LJURLRouter]:https://github.com/liaojinxing/LJURLRouter
 [Voice2Note]:https://github.com/liaojinxing/Voice2Note
+[简书]:http://www.jianshu.com/users/25481f0294aa/latest_articles
