@@ -1,6 +1,8 @@
 
 懒人笔记
 =========
+<b>本项目已不再维护</b>
+
 iTunes地址： https://itunes.apple.com/cn/app/lan-ren-bi-ji-zhi-chi-yu-yin/id899937013?mt=8 
 
 - 懒人笔记是一款为懒人设计的笔记本，你只需要通过语音输入，即可完成笔记的书写。
